@@ -1,4 +1,4 @@
-import { Cloneable, RpcCall } from "../shared/Rpc";
+import { Cloneable, RpcCall } from "../shared/Rpc.js";
 import { createHttpServer, createServer, createSocket } from "./api.js";
 
 export class PreloaderSockets {
