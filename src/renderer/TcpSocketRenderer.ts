@@ -1,7 +1,7 @@
 import EventEmitter from "eventemitter3";
 
-import { Cloneable, RpcCall, RpcEvent, RpcResponse } from "../shared/Rpc";
-import { TcpAddress } from "../shared/TcpTypes";
+import { Cloneable, RpcCall, RpcEvent, RpcResponse } from "../shared/Rpc.js";
+import { TcpAddress } from "../shared/TcpTypes.js";
 
 export interface TcpSocketRendererEvents {
   connect: () => void;

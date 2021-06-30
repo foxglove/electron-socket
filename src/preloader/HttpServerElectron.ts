@@ -1,8 +1,8 @@
 import http from "http";
 
-import { HttpRequest, HttpResponse } from "../shared/HttpTypes";
-import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc";
-import { TcpAddress } from "../shared/TcpTypes";
+import { HttpRequest, HttpResponse } from "../shared/HttpTypes.js";
+import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc.js";
+import { TcpAddress } from "../shared/TcpTypes.js";
 
 export class HttpServerElectron {
   readonly id: number;

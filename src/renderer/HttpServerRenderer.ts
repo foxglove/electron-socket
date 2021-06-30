@@ -1,8 +1,8 @@
 import EventEmitter from "eventemitter3";
 
-import { HttpHandler, HttpRequest, HttpResponse } from "../shared/HttpTypes";
-import { Cloneable, RpcCall, RpcEvent, RpcResponse } from "../shared/Rpc";
-import { TcpAddress } from "../shared/TcpTypes";
+import { HttpHandler, HttpRequest, HttpResponse } from "../shared/HttpTypes.js";
+import { Cloneable, RpcCall, RpcEvent, RpcResponse } from "../shared/Rpc.js";
+import { TcpAddress } from "../shared/TcpTypes.js";
 
 export interface HttpServerRendererEvents {
   close: () => void;

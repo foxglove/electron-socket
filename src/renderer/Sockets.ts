@@ -1,5 +1,5 @@
-import { HttpHandler } from "../shared/HttpTypes";
-import { Cloneable, RpcCall, RpcResponse } from "../shared/Rpc";
+import { HttpHandler } from "../shared/HttpTypes.js";
+import { Cloneable, RpcCall, RpcResponse } from "../shared/Rpc.js";
 import { HttpServerRenderer } from "./HttpServerRenderer.js";
 import { TcpServerRenderer } from "./TcpServerRenderer.js";
 import { TcpSocketRenderer } from "./TcpSocketRenderer.js";
