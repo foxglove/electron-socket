@@ -33,7 +33,7 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
         } catch (err) {
           res = { statusCode: 500, statusMessage: String(err) };
         }
-        this._apiCall("response", requestId, res);
+        void this._apiCall("response", requestId, res);
       },
     ],
     ["error", (args) => this.emit("error", new Error(args[0] as string))],
@@ -51,7 +51,7 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
         // RpcResponse
         const callId = ev.data[0];
         const callback = this._callbacks.get(callId);
-        if (callback !== undefined) {
+        if (callback != undefined) {
           this._callbacks.delete(callId);
           callback(args);
         }
@@ -106,7 +106,6 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
 
   async dispose(): Promise<void> {
     await this._apiCall("dispose");
-    // eslint-disable-next-line no-restricted-syntax
     this._messagePort.onmessage = null;
     this._messagePort.close();
     this._callbacks.clear();

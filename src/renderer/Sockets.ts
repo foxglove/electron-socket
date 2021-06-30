@@ -28,7 +28,7 @@ export class Sockets {
       const callId = ev.data[0];
       const args = ev.data.slice(1);
       const callback = this._callbacks.get(callId);
-      if (callback) {
+      if (callback != undefined) {
         this._callbacks.delete(callId);
         callback(args, ev.ports);
       }
@@ -40,7 +40,7 @@ export class Sockets {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (_, ports) => {
         const port = ports?.[0];
-        if (!port) {
+        if (port == undefined) {
           return reject(new Error("no port returned"));
         }
 
@@ -57,7 +57,7 @@ export class Sockets {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (args, ports) => {
         const msgPort = ports?.[0];
-        if (!msgPort) {
+        if (msgPort == undefined) {
           const err = args[0] as string | undefined;
           return reject(new Error(err ?? "no port returned"));
         }
@@ -75,7 +75,7 @@ export class Sockets {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (args, ports) => {
         const port = ports?.[0];
-        if (!port) {
+        if (port == undefined) {
           const err = args[0] as string | undefined;
           return reject(new Error(err ?? "no port returned"));
         }
@@ -90,9 +90,9 @@ export class Sockets {
 
   // Initialize electron-socket on the renderer side. This method should be called
   // before the window is loaded
-  static async Create(channel: string = "__electron_socket"): Promise<Sockets> {
+  static async Create(channel = "__electron_socket"): Promise<Sockets> {
     const entry = Sockets.registeredSockets.get(channel);
-    if (entry) {
+    if (entry != undefined) {
       const promise = entry as Promise<Sockets>;
       if (typeof promise.then === "function") {
         return promise;

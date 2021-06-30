@@ -38,7 +38,7 @@ export class TcpSocketRenderer extends EventEmitter<TcpSocketRendererEvents> {
         // RpcResponse
         const callId = ev.data[0];
         const callback = this._callbacks.get(callId);
-        if (callback !== undefined) {
+        if (callback != undefined) {
           this._callbacks.delete(callId);
           callback(args);
         }
@@ -97,7 +97,6 @@ export class TcpSocketRenderer extends EventEmitter<TcpSocketRendererEvents> {
 
   async dispose(): Promise<void> {
     await this._apiCall("dispose");
-    // eslint-disable-next-line no-restricted-syntax
     this._messagePort.onmessage = null;
     this._messagePort.close();
     this._callbacks.clear();

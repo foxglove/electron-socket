@@ -57,7 +57,9 @@ export class TcpSocketElectron {
       (callId, _) => {
         this.connect()
           .then(() => this._apiResponse(callId, undefined))
-          .catch((err) => this._apiResponse(callId, String(err.stack ?? err)));
+          .catch((err: Error) =>
+            this._apiResponse(callId, String(err.stack ?? err))
+          );
       },
     ],
     ["close", (callId) => this._apiResponse(callId, this.close())],
@@ -68,7 +70,9 @@ export class TcpSocketElectron {
         const data = args[0] as Uint8Array;
         this.write(data)
           .then(() => this._apiResponse(callId, undefined))
-          .catch((err) => this._apiResponse(callId, String(err.stack ?? err)));
+          .catch((err: Error) =>
+            this._apiResponse(callId, String(err.stack ?? err))
+          );
       },
     ],
   ]);
@@ -107,7 +111,7 @@ export class TcpSocketElectron {
     const port = this._socket.remotePort;
     const family = this._socket.remoteFamily;
     const address = this._socket.remoteAddress;
-    return port !== undefined && address !== undefined
+    return port != undefined && address != undefined
       ? { port, family, address }
       : undefined;
   }
@@ -116,7 +120,7 @@ export class TcpSocketElectron {
     const port = this._socket.localPort;
     const family = this._socket.remoteFamily; // There is no localFamily
     const address = this._socket.localAddress;
-    return port !== undefined && address !== undefined
+    return port != undefined && address != undefined
       ? { port, family, address }
       : undefined;
   }
@@ -146,7 +150,7 @@ export class TcpSocketElectron {
   }
 
   connected(): boolean {
-    return !this._socket.destroyed && this._socket.localAddress !== undefined;
+    return !this._socket.destroyed && this._socket.localAddress != undefined;
   }
 
   connect(): Promise<void> {
@@ -177,7 +181,7 @@ export class TcpSocketElectron {
   write(data: Uint8Array): Promise<void> {
     return new Promise((resolve, reject) => {
       this._socket.write(data, (err) => {
-        if (err) {
+        if (err != undefined) {
           reject(err);
           return;
         }
