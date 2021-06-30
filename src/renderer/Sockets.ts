@@ -1,8 +1,8 @@
 import { HttpHandler } from "../shared/HttpTypes";
 import { Cloneable, RpcCall, RpcResponse } from "../shared/Rpc";
-import { HttpServerRenderer } from "./HttpServerRenderer";
-import { TcpServerRenderer } from "./TcpServerRenderer";
-import { TcpSocketRenderer } from "./TcpSocketRenderer";
+import { HttpServerRenderer } from "./HttpServerRenderer.js";
+import { TcpServerRenderer } from "./TcpServerRenderer.js";
+import { TcpSocketRenderer } from "./TcpSocketRenderer.js";
 
 export class Sockets {
   // The renderer ("main world") side of the original message channel connecting

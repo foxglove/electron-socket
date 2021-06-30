@@ -1,6 +1,6 @@
 import dns from "dns";
 
-import { MDnsResolver } from "./MDnsResolver";
+import { MDnsResolver } from "./MDnsResolver.js";
 
 const mdnsResolver = new MDnsResolver();
 

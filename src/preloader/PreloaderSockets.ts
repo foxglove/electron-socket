@@ -1,5 +1,5 @@
 import { Cloneable, RpcCall } from "../shared/Rpc";
-import { createHttpServer, createServer, createSocket } from "./api";
+import { createHttpServer, createServer, createSocket } from "./api.js";
 
 export class PreloaderSockets {
   // The preloader ("isolated world") side of the original message channel

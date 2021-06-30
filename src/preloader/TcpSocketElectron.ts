@@ -2,7 +2,7 @@ import net from "net";
 
 import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc";
 import { TcpAddress } from "../shared/TcpTypes";
-import { dnsLookup } from "./dns";
+import { dnsLookup } from "./dns.js";
 
 type MaybeHasFd = {
   _handle?: {

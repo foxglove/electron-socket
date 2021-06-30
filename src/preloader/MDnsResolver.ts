@@ -1,6 +1,6 @@
 import dns from "dns";
 
-import { mdns4Request } from "./mdns";
+import { mdns4Request } from "./mdns.js";
 
 export type DnsCacheEntry = {
   address: string;
