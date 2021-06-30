@@ -1,7 +1,7 @@
 {
   "name": "@foxglove/electron-socket",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Networking sockets for Electron apps",
   "license": "MIT",
   "repository": "github:foxglove/electron-socket",
