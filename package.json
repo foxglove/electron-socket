@@ -20,6 +20,7 @@
     "src"
   ],
   "scripts": {
+    "prepack": "tsc -b",
     "build": "tsc -b",
     "clean": "tsc -b --clean",
     "lint": "eslint --fix .",
