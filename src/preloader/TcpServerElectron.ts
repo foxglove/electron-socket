@@ -2,8 +2,8 @@ import net from "net";
 
 import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc";
 import { TcpAddress } from "../shared/TcpTypes";
-import { TcpSocketElectron } from "./TcpSocketElectron";
-import { nextId, registerEntity } from "./registry";
+import { TcpSocketElectron } from "./TcpSocketElectron.js";
+import { nextId, registerEntity } from "./registry.js";
 
 export class TcpServerElectron {
   readonly id: number;

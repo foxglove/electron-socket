@@ -12,8 +12,8 @@
   },
   "type": "module",
   "exports": {
-    "./preloader": "./dist/preloader/index.ts",
-    "./renderer": "./dist/renderer/index.ts"
+    "./preloader": "./dist/preloader/index.js",
+    "./renderer": "./dist/renderer/index.js"
   },
   "files": [
     "dist",

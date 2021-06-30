@@ -1,9 +1,9 @@
 import { Socket } from "net";
 
-import { HttpServerElectron } from "./HttpServerElectron";
-import { TcpServerElectron } from "./TcpServerElectron";
-import { TcpSocketElectron } from "./TcpSocketElectron";
-import { nextId, registerEntity } from "./registry";
+import { HttpServerElectron } from "./HttpServerElectron.js";
+import { TcpServerElectron } from "./TcpServerElectron.js";
+import { TcpSocketElectron } from "./TcpSocketElectron.js";
+import { nextId, registerEntity } from "./registry.js";
 
 export function createHttpServer(): MessagePort {
   const channel = new MessageChannel();
