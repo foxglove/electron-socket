@@ -27,8 +27,8 @@
     "lint:ci": "eslint --report-unused-disable-directives ."
   },
   "dependencies": {
-    "dns-packet": "5.2.4",
-    "eventemitter3": "4.0.7"
+    "dns-packet": "^5.2.4",
+    "eventemitter3": "^4.0.7"
   },
   "peerDependencies": {
     "electron": ">=12"
