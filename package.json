@@ -1,16 +1,20 @@
 {
-  "name": "@foxglove/template",
+  "name": "@foxglove/electron-socket",
   "private": true,
   "version": "0.0.1",
-  "description": "",
-  "license": "",
-  "repository": "github:foxglove/template",
+  "description": "Networking sockets for Electron apps",
+  "license": "MIT",
+  "repository": "github:foxglove/electron-socket",
   "author": {
     "name": "Foxglove",
     "email": "contact@foxglove.dev",
     "url": "https://foxglove.dev/"
   },
-  "main": "dist/index.js",
+  "type": "module",
+  "exports": {
+    "./preloader": "./dist/preloader/index.ts",
+    "./renderer": "./dist/renderer/index.ts"
+  },
   "files": [
     "dist",
     "src"
@@ -19,21 +23,25 @@
     "build": "tsc -b",
     "clean": "tsc -b --clean",
     "lint": "eslint --fix .",
-    "lint:ci": "eslint .",
-    "test": "jest"
+    "lint:ci": "eslint ."
+  },
+  "dependencies": {
+    "dns-packet": "5.2.4",
+    "eventemitter3": "4.0.7"
+  },
+  "peerDependencies": {
+    "electron": ">=12"
   },
   "devDependencies": {
     "@foxglove/eslint-plugin": "0.11.1",
-    "@types/jest": "26.0.23",
+    "@foxglove/tsconfig": "1.0.0",
+    "@types/dns-packet": "5.2.0",
     "@typescript-eslint/eslint-plugin": "4.28.0",
     "@typescript-eslint/parser": "4.28.0",
-    "esbuild-jest": "0.5.0",
     "eslint": "7.29.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.23.4",
-    "eslint-plugin-jest": "24.3.6",
     "eslint-plugin-prettier": "3.4.0",
-    "jest": "27.0.5",
     "prettier": "2.3.2",
     "typescript": "4.3.4"
   }
