@@ -1,0 +1,9 @@
+// -*- jsonc -*-
+// special tsconfig to allow *.d.ts files to pass lint
+{
+  "extends": "@foxglove/tsconfig/base",
+  "include": ["./*.d.ts"],
+  "compilerOptions": {
+    "noEmit": true
+  }
+}
