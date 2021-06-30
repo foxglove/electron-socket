@@ -1,6 +1,6 @@
 {
   "name": "@foxglove/electron-socket",
-  "private": true,
+  "private": false,
   "version": "0.0.1",
   "description": "Networking sockets for Electron apps",
   "license": "MIT",
