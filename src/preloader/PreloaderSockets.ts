@@ -73,7 +73,7 @@ export class PreloaderSockets {
   }
 
   static async Create(
-    channel: string = "__electron_socket"
+    channel = "__electron_socket"
   ): Promise<PreloaderSockets> {
     const windowLoaded = new Promise<void>((resolve) => {
       if (document.readyState === "complete") {
@@ -90,7 +90,7 @@ export class PreloaderSockets {
     await windowLoaded;
 
     const entry = PreloaderSockets.registeredSockets.get(channel);
-    if (entry) {
+    if (entry != undefined) {
       return entry;
     }
 

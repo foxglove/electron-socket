@@ -23,7 +23,7 @@ export class HttpServerElectron {
         const backlog = args[2] as number | undefined;
         this.listen(port, hostname, backlog)
           .then(() => this._apiResponse([callId, undefined]))
-          .catch((err) =>
+          .catch((err: Error) =>
             this._apiResponse([callId, String(err.stack ?? err)])
           );
       },
@@ -41,7 +41,7 @@ export class HttpServerElectron {
         this._requests.delete(requestId);
         handler(response)
           .then(() => this._apiResponse([callId, undefined]))
-          .catch((err) =>
+          .catch((err: Error) =>
             this._apiResponse([callId, String(err.stack ?? err)])
           );
       },

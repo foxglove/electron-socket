@@ -23,8 +23,8 @@
     "prepack": "tsc -b",
     "build": "tsc -b",
     "clean": "tsc -b --clean",
-    "lint": "eslint --fix .",
-    "lint:ci": "eslint ."
+    "lint": "eslint --report-unused-disable-directives --fix .",
+    "lint:ci": "eslint --report-unused-disable-directives ."
   },
   "dependencies": {
     "dns-packet": "5.2.4",
@@ -34,7 +34,7 @@
     "electron": ">=12"
   },
   "devDependencies": {
-    "@foxglove/eslint-plugin": "0.11.1",
+    "@foxglove/eslint-plugin": "0.12.0",
     "@foxglove/tsconfig": "1.0.0",
     "@types/dns-packet": "5.2.0",
     "@typescript-eslint/eslint-plugin": "4.28.0",

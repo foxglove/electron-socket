@@ -23,7 +23,7 @@ export class TcpServerRenderer extends EventEmitter<TcpServerRendererEvents> {
       "connection",
       (_, ports) => {
         const port = ports?.[0];
-        if (port) {
+        if (port != undefined) {
           const socket = new TcpSocketRenderer(port);
           this.emit("connection", socket);
         }
@@ -42,7 +42,7 @@ export class TcpServerRenderer extends EventEmitter<TcpServerRendererEvents> {
         // RpcResponse
         const callId = ev.data[0];
         const callback = this._callbacks.get(callId);
-        if (callback !== undefined) {
+        if (callback != undefined) {
           this._callbacks.delete(callId);
           callback(args);
         }
@@ -78,7 +78,6 @@ export class TcpServerRenderer extends EventEmitter<TcpServerRendererEvents> {
 
   async dispose(): Promise<void> {
     await this._apiCall("dispose");
-    // eslint-disable-next-line no-restricted-syntax
     this._messagePort.onmessage = null;
     this._messagePort.close();
     this._callbacks.clear();

@@ -9,7 +9,6 @@ const getaddrinfo = dns.lookup.bind(dns);
 export function dnsLookup(
   hostname: string,
   options: dns.LookupOneOptions,
-  // eslint-disable-next-line no-restricted-syntax
   callback: (
     err: NodeJS.ErrnoException | null,
     address: string,
@@ -19,14 +18,13 @@ export function dnsLookup(
   if (!/\.local$/.test(hostname)) {
     getaddrinfo(hostname, options, callback);
   } else {
-    mdnsLookup(hostname, options, callback);
+    void mdnsLookup(hostname, options, callback);
   }
 }
 
 export async function mdnsLookup(
   hostname: string,
   options: dns.LookupOneOptions,
-  // eslint-disable-next-line no-restricted-syntax
   callback: (
     err: NodeJS.ErrnoException | null,
     address: string,
@@ -41,6 +39,5 @@ export async function mdnsLookup(
       0
     );
   }
-  // eslint-disable-next-line no-restricted-syntax
   callback(null, response.address, response.family);
 }
