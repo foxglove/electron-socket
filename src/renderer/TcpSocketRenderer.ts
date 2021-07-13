@@ -16,10 +16,7 @@ export class TcpSocketRenderer extends EventEmitter<TcpSocketRendererEvents> {
   private _messagePort: MessagePort;
   private _callbacks = new Map<number, (result: Cloneable[]) => void>();
   private _nextCallId = 0;
-  private _events = new Map<
-    string,
-    (args: Cloneable[], ports?: readonly MessagePort[]) => void
-  >([
+  private _events = new Map<string, (args: Cloneable[], ports?: readonly MessagePort[]) => void>([
     ["connect", () => this.emit("connect")],
     ["close", () => this.emit("close")],
     ["end", () => this.emit("end")],
@@ -118,10 +115,7 @@ export class TcpSocketRenderer extends EventEmitter<TcpSocketRendererEvents> {
     });
   }
 
-  private _apiCall(
-    methodName: string,
-    ...args: Cloneable[]
-  ): Promise<Cloneable[]> {
+  private _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
     return new Promise((resolve) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (result) => {

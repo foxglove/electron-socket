@@ -17,14 +17,8 @@ export class TcpSocketElectron {
   private _socket: net.Socket;
   private _messagePort: MessagePort;
   private _api = new Map<string, RpcHandler>([
-    [
-      "remoteAddress",
-      (callId) => this._apiResponse(callId, this.remoteAddress()),
-    ],
-    [
-      "localAddress",
-      (callId) => this._apiResponse(callId, this.localAddress()),
-    ],
+    ["remoteAddress", (callId) => this._apiResponse(callId, this.remoteAddress())],
+    ["localAddress", (callId) => this._apiResponse(callId, this.localAddress())],
     ["fd", (callId) => this._apiResponse(callId, this.fd())],
     [
       "setKeepAlive",
@@ -57,9 +51,7 @@ export class TcpSocketElectron {
       (callId, _) => {
         this.connect()
           .then(() => this._apiResponse(callId, undefined))
-          .catch((err: Error) =>
-            this._apiResponse(callId, String(err.stack ?? err))
-          );
+          .catch((err: Error) => this._apiResponse(callId, String(err.stack ?? err)));
       },
     ],
     ["close", (callId) => this._apiResponse(callId, this.close())],
@@ -70,9 +62,7 @@ export class TcpSocketElectron {
         const data = args[0] as Uint8Array;
         this.write(data)
           .then(() => this._apiResponse(callId, undefined))
-          .catch((err: Error) =>
-            this._apiResponse(callId, String(err.stack ?? err))
-          );
+          .catch((err: Error) => this._apiResponse(callId, String(err.stack ?? err)));
       },
     ],
   ]);
@@ -82,7 +72,7 @@ export class TcpSocketElectron {
     messagePort: MessagePort,
     host: string,
     port: number,
-    socket: net.Socket
+    socket: net.Socket,
   ) {
     this.id = id;
     this.host = host;
@@ -94,9 +84,7 @@ export class TcpSocketElectron {
     this._socket.on("end", () => this._emit("end"));
     this._socket.on("data", this._handleData);
     this._socket.on("timeout", () => this._emit("timeout"));
-    this._socket.on("error", (err) =>
-      this._emit("error", String(err.stack ?? err))
-    );
+    this._socket.on("error", (err) => this._emit("error", String(err.stack ?? err)));
 
     messagePort.onmessage = (ev: MessageEvent<RpcCall>) => {
       const [methodName, callId] = ev.data;
@@ -111,18 +99,14 @@ export class TcpSocketElectron {
     const port = this._socket.remotePort;
     const family = this._socket.remoteFamily;
     const address = this._socket.remoteAddress;
-    return port != undefined && address != undefined
-      ? { port, family, address }
-      : undefined;
+    return port != undefined && address != undefined ? { port, family, address } : undefined;
   }
 
   localAddress(): TcpAddress | undefined {
     const port = this._socket.localPort;
     const family = this._socket.remoteFamily; // There is no localFamily
     const address = this._socket.localAddress;
-    return port != undefined && address != undefined
-      ? { port, family, address }
-      : undefined;
+    return port != undefined && address != undefined ? { port, family, address } : undefined;
   }
 
   fd(): number | undefined {
@@ -156,14 +140,11 @@ export class TcpSocketElectron {
   connect(): Promise<void> {
     return new Promise((resolve, reject) => {
       this._socket
-        .connect(
-          { host: this.host, port: this.port, lookup: dnsLookup },
-          () => {
-            this._socket.removeListener("error", reject);
-            resolve();
-            this._emit("connect");
-          }
-        )
+        .connect({ host: this.host, port: this.port, lookup: dnsLookup }, () => {
+          this._socket.removeListener("error", reject);
+          resolve();
+          this._emit("connect");
+        })
         .on("error", reject);
     });
   }

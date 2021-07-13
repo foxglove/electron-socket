@@ -14,7 +14,7 @@ export type MDnsResponse = {
 
 export function mdns4Request(
   hostname: string,
-  timeoutMs = 8000
+  timeoutMs = 8000,
 ): Promise<MDnsResponse | undefined> {
   return new Promise((resolve, reject) => {
     const interfaces = allInterfaces();
@@ -28,9 +28,7 @@ export function mdns4Request(
       resolve(response);
     };
 
-    const sockets = interfaces.map((iface) =>
-      mdns4RequestOnIface(hostname, iface, finish)
-    );
+    const sockets = interfaces.map((iface) => mdns4RequestOnIface(hostname, iface, finish));
     const timeout = setTimeout(finish, timeoutMs);
   });
 }
@@ -57,7 +55,7 @@ function allInterfaces(): string[] {
 function mdns4RequestOnIface(
   hostname: string,
   iface: string,
-  callback: (res: MDnsResponse) => void
+  callback: (res: MDnsResponse) => void,
 ): dgram.Socket {
   const socket = dgram.createSocket({ type: "udp4", reuseAddr: true });
   let timeout: NodeJS.Timeout;
@@ -92,10 +90,7 @@ function mdns4RequestOnIface(
 
     const sendMessage = () => {
       socket.send(message, 0, message.length, PORT, BROADCAST_IP);
-      timeout = setTimeout(
-        sendMessage,
-        MIN_RETRY_MS + Math.random() * RETRY_JITTER_MS
-      );
+      timeout = setTimeout(sendMessage, MIN_RETRY_MS + Math.random() * RETRY_JITTER_MS);
     };
 
     sendMessage();

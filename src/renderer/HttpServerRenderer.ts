@@ -17,10 +17,7 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
   private _messagePort: MessagePort;
   private _callbacks = new Map<number, (result: Cloneable[]) => void>();
   private _nextCallId = 0;
-  private _events = new Map<
-    string,
-    (args: Cloneable[], ports?: readonly MessagePort[]) => void
-  >([
+  private _events = new Map<string, (args: Cloneable[], ports?: readonly MessagePort[]) => void>([
     ["close", () => this.emit("close")],
     [
       "request",
@@ -42,8 +39,7 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
   constructor(messagePort: MessagePort, requestHandler?: HttpHandler) {
     super();
     this._messagePort = messagePort;
-    this.handler =
-      requestHandler ?? (() => Promise.resolve({ statusCode: 404 }));
+    this.handler = requestHandler ?? (() => Promise.resolve({ statusCode: 404 }));
 
     messagePort.onmessage = (ev: MessageEvent<RpcResponse | RpcEvent>) => {
       const args = ev.data.slice(1);
@@ -78,11 +74,7 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
     return res[0] as TcpAddress | undefined;
   }
 
-  async listen(
-    port?: number,
-    hostname?: string,
-    backlog?: number
-  ): Promise<void> {
+  async listen(port?: number, hostname?: string, backlog?: number): Promise<void> {
     const res = await this._apiCall("listen", port, hostname, backlog);
     const err = res[0] as string | undefined;
     if (err != undefined) {

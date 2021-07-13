@@ -19,9 +19,7 @@ export class TcpServerElectron {
         const backlog = args[2] as number | undefined;
         this.listen(port, hostname, backlog)
           .then(() => this._apiResponse([callId, undefined]))
-          .catch((err: Error) =>
-            this._apiResponse([callId, String(err.stack ?? err)])
-          );
+          .catch((err: Error) => this._apiResponse([callId, String(err.stack ?? err)]));
       },
     ],
     ["close", (callId) => this._apiResponse([callId, this.close()])],
@@ -35,9 +33,7 @@ export class TcpServerElectron {
 
     this._server.on("close", () => this._emit("close"));
     this._server.on("connection", (socket) => this._emitConnection(socket));
-    this._server.on("error", (err) =>
-      this._emit("error", String(err.stack ?? err))
-    );
+    this._server.on("error", (err) => this._emit("error", String(err.stack ?? err)));
 
     messagePort.onmessage = (ev: MessageEvent<RpcCall>) => {
       const [methodName, callId] = ev.data;
@@ -95,13 +91,7 @@ export class TcpServerElectron {
     const channel = new MessageChannel();
     const host = socket.remoteAddress as string;
     const port = socket.remotePort as number;
-    const electronSocket = new TcpSocketElectron(
-      id,
-      channel.port2,
-      host,
-      port,
-      socket
-    );
+    const electronSocket = new TcpSocketElectron(id, channel.port2, host, port, socket);
     registerEntity(id, electronSocket);
     this._messagePort.postMessage(["connection"], [channel.port1]);
   }

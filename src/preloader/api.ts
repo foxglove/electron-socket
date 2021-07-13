@@ -1,3 +1,4 @@
+import { Socket as UdpSocket } from "dgram";
 import { Socket } from "net";
 
 import { HttpServerElectron } from "./HttpServerElectron.js";
@@ -13,19 +14,10 @@ export function createHttpServer(): MessagePort {
   return channel.port1;
 }
 
-export function createSocket(
-  host: string,
-  port: number
-): MessagePort | undefined {
+export function createSocket(host: string, port: number): MessagePort | undefined {
   const channel = new MessageChannel();
   const id = nextId();
-  const socket = new TcpSocketElectron(
-    id,
-    channel.port2,
-    host,
-    port,
-    new Socket()
-  );
+  const socket = new TcpSocketElectron(id, channel.port2, host, port, new Socket());
   registerEntity(id, socket);
   return channel.port1;
 }
