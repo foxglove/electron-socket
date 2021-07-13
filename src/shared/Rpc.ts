@@ -8,11 +8,7 @@ export type Cloneable =
   | Cloneable[]
   | { [key: string]: Cloneable };
 
-export type RpcCall = [
-  methodName: string,
-  callId: number,
-  ...args: Cloneable[]
-];
+export type RpcCall = [methodName: string, callId: number, ...args: Cloneable[]];
 
 export type RpcResponse = [callId: number, ...args: Cloneable[]];
 
