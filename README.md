@@ -38,11 +38,10 @@ main();
 
 ## License
 
-@foxglove/electron-socket is released under the [MIT License](/LICENSE.md).
+@foxglove/electron-socket is licensed under [MIT License](https://opensource.org/licenses/MIT).
 
 ## Releasing
 
-```sh
-tag=$(npm version minor) && echo "$tag"
-git push && git push origin "$tag"
-```
+1. Run `yarn version --[major|minor|patch]` to bump version
+2. Run `git push && git push --tags` to push new tag
+3. GitHub Actions will take care of the rest
