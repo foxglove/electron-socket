@@ -4,6 +4,7 @@ import { Socket } from "net";
 import { HttpServerElectron } from "./HttpServerElectron.js";
 import { TcpServerElectron } from "./TcpServerElectron.js";
 import { TcpSocketElectron } from "./TcpSocketElectron.js";
+import { UdpSocketElectron } from "./UdpSocketElectron.js";
 import { nextId, registerEntity } from "./registry.js";
 
 export function createHttpServer(): MessagePort {
@@ -27,5 +28,13 @@ export function createServer(): MessagePort | undefined {
   const id = nextId();
   const server = new TcpServerElectron(id, channel.port2);
   registerEntity(id, server);
+  return channel.port1;
+}
+
+export function createUdpSocket(): MessagePort | undefined {
+  const channel = new MessageChannel();
+  const id = nextId();
+  const socket = new UdpSocketElectron(id, channel.port2, new UdpSocket());
+  registerEntity(id, socket);
   return channel.port1;
 }

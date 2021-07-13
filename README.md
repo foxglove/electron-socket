@@ -4,7 +4,7 @@ Networking sockets for Electron apps
 
 ## Introduction
 
-Raw sockets are not supported in browser contexts, even in Electron apps. To overcome this limitation, this package uses RPC between the Electron renderer context (referred to in this package as the "renderer" and in Electron documentation as "main world") and the preloader (referred to in Electron documentation as "isolated world" when running with `contextIsolation: true`) to expose TCP socket and server classes in the renderer context. The API somewhat resembles `net.Socket` and `net.Server` from node.js, with Promise-based methods since these classes are built on asynchronous RPC.
+Raw sockets are not supported in browser contexts, even in Electron apps. To overcome this limitation, this package uses RPC between the Electron renderer context (referred to in this package as the "renderer" and in Electron documentation as "main world") and the preloader (referred to in Electron documentation as "isolated world" when running with `contextIsolation: true`) to expose TCP/UDP sockets and server classes in the renderer context. The API somewhat resembles `net.Socket`/`dgram.Socket` and `net.Server` from node.js, with Promise-based methods since these classes are built on asynchronous RPC.
 
 ## Usage
 
