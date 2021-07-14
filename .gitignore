@@ -3,3 +3,5 @@
 *.tsbuildinfo
 dist/
 node_modules/
+
+.webpack
