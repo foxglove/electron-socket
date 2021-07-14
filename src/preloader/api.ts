@@ -5,6 +5,7 @@ import { HttpServerElectron } from "./HttpServerElectron.js";
 import { TcpServerElectron } from "./TcpServerElectron.js";
 import { TcpSocketElectron } from "./TcpSocketElectron.js";
 import { UdpSocketElectron } from "./UdpSocketElectron.js";
+import { dnsLookup } from "./dns.js";
 import { nextId, registerEntity } from "./registry.js";
 
 export function createHttpServer(): MessagePort {
@@ -32,7 +33,7 @@ export function createServer(): MessagePort | undefined {
 }
 
 export function createUdpSocket(): MessagePort | undefined {
-  const SOCKET_OPTS: UdpSocketOptions = { type: "udp4", reuseAddr: true };
+  const SOCKET_OPTS: UdpSocketOptions = { type: "udp4", reuseAddr: true, lookup: dnsLookup };
 
   const channel = new MessageChannel();
   const id = nextId();
