@@ -1,4 +1,4 @@
-import { Socket as UdpSocket } from "dgram";
+import { SocketOptions as UdpSocketOptions, createSocket as createNodejsUdpSocket } from "dgram";
 import { Socket } from "net";
 
 import { HttpServerElectron } from "./HttpServerElectron.js";
@@ -32,9 +32,11 @@ export function createServer(): MessagePort | undefined {
 }
 
 export function createUdpSocket(): MessagePort | undefined {
+  const SOCKET_OPTS: UdpSocketOptions = { type: "udp4", reuseAddr: true };
+
   const channel = new MessageChannel();
   const id = nextId();
-  const socket = new UdpSocketElectron(id, channel.port2, new UdpSocket());
+  const socket = new UdpSocketElectron(id, channel.port2, createNodejsUdpSocket(SOCKET_OPTS));
   registerEntity(id, socket);
   return channel.port1;
 }

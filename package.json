@@ -9,8 +9,8 @@
     "url": "https://github.com/foxglove/electron-socket.git"
   },
   "author": {
-    "name": "Foxglove Technologies",
-    "email": "support@foxglove.dev"
+    "name": "Foxglove",
+    "email": "contact@foxglove.dev"
   },
   "homepage": "https://github.com/foxglove/electron-socket",
   "type": "module",
