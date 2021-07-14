@@ -1,0 +1,11 @@
+{
+  "testMatch": ["<rootDir>/**/*.test.ts"],
+  "transform": {
+    "^.+\\.ts$": [
+      "esbuild-jest",
+      {
+        "target": "es2020"
+      }
+    ]
+  }
+}
