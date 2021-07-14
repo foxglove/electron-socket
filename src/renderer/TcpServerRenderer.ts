@@ -14,10 +14,7 @@ export class TcpServerRenderer extends EventEmitter<TcpServerRendererEvents> {
   private _messagePort: MessagePort;
   private _callbacks = new Map<number, (result: Cloneable[]) => void>();
   private _nextCallId = 0;
-  private _events = new Map<
-    string,
-    (args: Cloneable[], ports?: readonly MessagePort[]) => void
-  >([
+  private _events = new Map<string, (args: Cloneable[], ports?: readonly MessagePort[]) => void>([
     ["close", () => this.emit("close")],
     [
       "connection",
@@ -61,11 +58,7 @@ export class TcpServerRenderer extends EventEmitter<TcpServerRendererEvents> {
     return res[0] as TcpAddress | undefined;
   }
 
-  async listen(
-    port?: number,
-    hostname?: string,
-    backlog?: number
-  ): Promise<void> {
+  async listen(port?: number, hostname?: string, backlog?: number): Promise<void> {
     const res = await this._apiCall("listen", port, hostname, backlog);
     if (res[0] != undefined) {
       return Promise.reject(new Error(res[0] as string));
@@ -83,10 +76,7 @@ export class TcpServerRenderer extends EventEmitter<TcpServerRendererEvents> {
     this._callbacks.clear();
   }
 
-  private _apiCall(
-    methodName: string,
-    ...args: Cloneable[]
-  ): Promise<Cloneable[]> {
+  private _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
     return new Promise((resolve) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (result) => {

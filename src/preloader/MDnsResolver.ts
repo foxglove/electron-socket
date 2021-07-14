@@ -16,7 +16,7 @@ export class MDnsResolver {
 
   async mdnsLookup(
     hostname: string,
-    options: dns.LookupOneOptions
+    options: dns.LookupOneOptions,
   ): Promise<DnsCacheEntry | undefined> {
     // Cache check
     let entry = this._getEntry(hostname);
@@ -41,7 +41,7 @@ export class MDnsResolver {
 
   private async _doMdnsLookup(
     hostname: string,
-    _options: dns.LookupOneOptions
+    _options: dns.LookupOneOptions,
   ): Promise<DnsCacheEntry | undefined> {
     const DEFAULT_TTL_SEC = 120;
 
@@ -57,12 +57,7 @@ export class MDnsResolver {
       if (answer.ttl === 0) {
         this.dnsCache.delete(hostname);
       } else {
-        this._addEntry(
-          hostname,
-          address,
-          family,
-          answer.ttl ?? DEFAULT_TTL_SEC
-        );
+        this._addEntry(hostname, address, family, answer.ttl ?? DEFAULT_TTL_SEC);
       }
 
       return this._getEntry(hostname);
@@ -71,12 +66,7 @@ export class MDnsResolver {
     }
   }
 
-  private _addEntry(
-    hostname: string,
-    address: string,
-    family: number,
-    ttl: number
-  ): void {
+  private _addEntry(hostname: string, address: string, family: number, ttl: number): void {
     const TTL_MULTIPLIER = 60;
 
     // Scan for any entries that should be expired

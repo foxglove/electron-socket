@@ -9,10 +9,7 @@ export class HttpServerElectron {
   private _server: http.Server;
   private _messagePort: MessagePort;
   private _nextRequestId = 0;
-  private _requests = new Map<
-    number,
-    (response: HttpResponse) => Promise<void>
-  >();
+  private _requests = new Map<number, (response: HttpResponse) => Promise<void>>();
   private _api = new Map<string, RpcHandler>([
     ["address", (callId) => this._apiResponse([callId, this.address()])],
     [
@@ -23,9 +20,7 @@ export class HttpServerElectron {
         const backlog = args[2] as number | undefined;
         this.listen(port, hostname, backlog)
           .then(() => this._apiResponse([callId, undefined]))
-          .catch((err: Error) =>
-            this._apiResponse([callId, String(err.stack ?? err)])
-          );
+          .catch((err: Error) => this._apiResponse([callId, String(err.stack ?? err)]));
       },
     ],
     [
@@ -41,9 +36,7 @@ export class HttpServerElectron {
         this._requests.delete(requestId);
         handler(response)
           .then(() => this._apiResponse([callId, undefined]))
-          .catch((err: Error) =>
-            this._apiResponse([callId, String(err.stack ?? err)])
-          );
+          .catch((err: Error) => this._apiResponse([callId, String(err.stack ?? err)]));
       },
     ],
     ["close", (callId) => this._apiResponse([callId, this.close()])],
@@ -56,9 +49,7 @@ export class HttpServerElectron {
     this._messagePort = messagePort;
 
     this._server.on("close", () => this._emit("close"));
-    this._server.on("error", (err) =>
-      this._emit("error", String(err.stack ?? err))
-    );
+    this._server.on("error", (err) => this._emit("error", String(err.stack ?? err)));
 
     messagePort.onmessage = (ev: MessageEvent<RpcCall>) => {
       const [methodName, callId] = ev.data;
@@ -111,10 +102,7 @@ export class HttpServerElectron {
     this._messagePort.postMessage(msg);
   }
 
-  private _handleRequest = (
-    req: http.IncomingMessage,
-    res: http.ServerResponse
-  ): void => {
+  private _handleRequest = (req: http.IncomingMessage, res: http.ServerResponse): void => {
     const chunks: Uint8Array[] = [];
     req.on("data", (chunk: Uint8Array) => chunks.push(chunk));
     req.on("end", () => {
@@ -122,20 +110,13 @@ export class HttpServerElectron {
 
       const requestId = this._nextRequestId++;
       this._requests.set(requestId, (incomingRes): Promise<void> => {
-        res.chunkedEncoding =
-          incomingRes.chunkedEncoding ?? res.chunkedEncoding;
-        res.shouldKeepAlive =
-          incomingRes.shouldKeepAlive ?? res.shouldKeepAlive;
+        res.chunkedEncoding = incomingRes.chunkedEncoding ?? res.chunkedEncoding;
+        res.shouldKeepAlive = incomingRes.shouldKeepAlive ?? res.shouldKeepAlive;
         res.useChunkedEncodingByDefault =
-          incomingRes.useChunkedEncodingByDefault ??
-          res.useChunkedEncodingByDefault;
+          incomingRes.useChunkedEncodingByDefault ?? res.useChunkedEncodingByDefault;
         res.sendDate = incomingRes.sendDate ?? res.sendDate;
 
-        res.writeHead(
-          incomingRes.statusCode,
-          incomingRes.statusMessage,
-          incomingRes.headers
-        );
+        res.writeHead(incomingRes.statusCode, incomingRes.statusMessage, incomingRes.headers);
         return new Promise((resolve) => res.end(incomingRes.body, resolve));
       });
 

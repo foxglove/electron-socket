@@ -3,6 +3,7 @@ import { Cloneable, RpcCall, RpcResponse } from "../shared/Rpc.js";
 import { HttpServerRenderer } from "./HttpServerRenderer.js";
 import { TcpServerRenderer } from "./TcpServerRenderer.js";
 import { TcpSocketRenderer } from "./TcpSocketRenderer.js";
+import { UdpSocketRenderer } from "./UdpSocketRenderer.js";
 
 export class Sockets {
   // The renderer ("main world") side of the original message channel connecting
@@ -84,6 +85,24 @@ export class Sockets {
       });
 
       const msg: RpcCall = ["createServer", callId];
+      this._messagePort.postMessage(msg);
+    });
+  }
+
+  createUdpSocket(): Promise<UdpSocketRenderer> {
+    return new Promise((resolve, reject) => {
+      const callId = this._nextCallId++;
+      this._callbacks.set(callId, (args, ports) => {
+        const msgPort = ports?.[0];
+        if (msgPort == undefined) {
+          const err = args[0] as string | undefined;
+          return reject(new Error(err ?? "no port returned"));
+        }
+
+        resolve(new UdpSocketRenderer(msgPort));
+      });
+
+      const msg: RpcCall = ["createUdpSocket", callId];
       this._messagePort.postMessage(msg);
     });
   }
