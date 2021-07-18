@@ -1,6 +1,6 @@
 export type UdpAddress = {
   port: number;
-  family?: string;
+  family: string;
   address: string;
 };
 
