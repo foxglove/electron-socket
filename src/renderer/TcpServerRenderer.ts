@@ -76,9 +76,8 @@ export class TcpServerRenderer extends EventEmitter<TcpServerRendererEvents> {
     this._callbacks.clear();
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  private _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
-    return new Promise((resolve) => {
+  private async _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
+    return await new Promise((resolve) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (result) => {
         this._callbacks.delete(callId);

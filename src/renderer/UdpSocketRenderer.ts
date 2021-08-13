@@ -125,8 +125,7 @@ export class UdpSocketRenderer extends EventEmitter<UdpSocketRendererEvents> {
     );
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  send(
+  async send(
     data: Uint8Array,
     offset?: number,
     length?: number,
@@ -134,7 +133,7 @@ export class UdpSocketRenderer extends EventEmitter<UdpSocketRendererEvents> {
     address?: string,
     transfer = true,
   ): Promise<void> {
-    return new Promise((resolve) => {
+    return await new Promise((resolve) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, () => {
         this._callbacks.delete(callId);
@@ -177,9 +176,8 @@ export class UdpSocketRenderer extends EventEmitter<UdpSocketRendererEvents> {
     await this._apiCall("setTTL", ttl);
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  private _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
-    return new Promise((resolve) => {
+  private async _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
+    return await new Promise((resolve) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (result) => {
         this._callbacks.delete(callId);

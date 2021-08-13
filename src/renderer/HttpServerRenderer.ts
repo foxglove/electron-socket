@@ -39,8 +39,7 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
   constructor(messagePort: MessagePort, requestHandler?: HttpHandler) {
     super();
     this._messagePort = messagePort;
-    // eslint-disable-next-line @typescript-eslint/promise-function-async
-    this.handler = requestHandler ?? (() => Promise.resolve({ statusCode: 404 }));
+    this.handler = requestHandler ?? (async () => ({ statusCode: 404 }));
 
     messagePort.onmessage = (ev: MessageEvent<RpcResponse | RpcEvent>) => {
       const args = ev.data.slice(1);
@@ -104,9 +103,8 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
     this._callbacks.clear();
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
-    return new Promise((resolve) => {
+  async _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
+    return await new Promise((resolve) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (result) => {
         this._callbacks.delete(callId);
