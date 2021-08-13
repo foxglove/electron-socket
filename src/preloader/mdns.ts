@@ -12,12 +12,11 @@ export type MDnsResponse = {
   rinfo: dgram.RemoteInfo;
 };
 
-// eslint-disable-next-line @typescript-eslint/promise-function-async
-export function mdns4Request(
+export async function mdns4Request(
   hostname: string,
   timeoutMs = 8000,
 ): Promise<MDnsResponse | undefined> {
-  return new Promise((resolve, reject) => {
+  return await new Promise((resolve, reject) => {
     const interfaces = allInterfaces();
     if (interfaces.length === 0) {
       return reject(new Error("No interfaces to send an mDNS request"));
