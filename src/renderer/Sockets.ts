@@ -36,9 +36,8 @@ export class Sockets {
     };
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  createHttpServer(requestHandler?: HttpHandler): Promise<HttpServerRenderer> {
-    return new Promise((resolve, reject) => {
+  async createHttpServer(requestHandler?: HttpHandler): Promise<HttpServerRenderer> {
+    return await new Promise((resolve, reject) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (_, ports) => {
         const port = ports?.[0];
@@ -54,9 +53,8 @@ export class Sockets {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  createSocket(host: string, port: number): Promise<TcpSocketRenderer> {
-    return new Promise((resolve, reject) => {
+  async createSocket(host: string, port: number): Promise<TcpSocketRenderer> {
+    return await new Promise((resolve, reject) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (args, ports) => {
         const msgPort = ports?.[0];
@@ -73,9 +71,8 @@ export class Sockets {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  createServer(): Promise<TcpServerRenderer> {
-    return new Promise((resolve, reject) => {
+  async createServer(): Promise<TcpServerRenderer> {
+    return await new Promise((resolve, reject) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (args, ports) => {
         const port = ports?.[0];
@@ -92,9 +89,8 @@ export class Sockets {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  createUdpSocket(): Promise<UdpSocketRenderer> {
-    return new Promise((resolve, reject) => {
+  async createUdpSocket(): Promise<UdpSocketRenderer> {
+    return await new Promise((resolve, reject) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (args, ports) => {
         const msgPort = ports?.[0];

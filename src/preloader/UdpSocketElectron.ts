@@ -219,9 +219,8 @@ export class UdpSocketElectron {
     this._socket.addSourceSpecificMembership(sourceAddress, groupAddress, multicastInterface);
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  bind(options: dgram.BindOptions): Promise<void> {
-    return new Promise((resolve, reject) => {
+  async bind(options: dgram.BindOptions): Promise<void> {
+    return await new Promise((resolve, reject) => {
       this._socket.on("error", reject).bind(options, () => {
         this._socket.removeListener("error", reject);
         resolve();
@@ -229,9 +228,8 @@ export class UdpSocketElectron {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  connect(port: number, address?: string): Promise<void> {
-    return new Promise((resolve, reject) => {
+  async connect(port: number, address?: string): Promise<void> {
+    return await new Promise((resolve, reject) => {
       this._socket.on("error", reject).connect(port, address, () => {
         this._socket.removeListener("error", reject);
         resolve();
@@ -240,9 +238,8 @@ export class UdpSocketElectron {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  close(): Promise<void> {
-    return new Promise((resolve) => {
+  async close(): Promise<void> {
+    return await new Promise((resolve) => {
       this._socket.close(() => resolve);
     });
   }
@@ -269,15 +266,14 @@ export class UdpSocketElectron {
     this._socket.dropSourceSpecificMembership(sourceAddress, groupAddress, multicastInterface);
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  send(
+  async send(
     msg: Uint8Array,
     offset = 0,
     length = msg.byteLength,
     port?: number,
     address?: string,
   ): Promise<void> {
-    return new Promise((resolve, reject) => {
+    return await new Promise((resolve, reject) => {
       this._socket.send(msg, offset, length, port, address, (err) => {
         if (err != undefined) {
           reject(err);

@@ -99,9 +99,8 @@ export class TcpSocketRenderer extends EventEmitter<TcpSocketRendererEvents> {
     this._callbacks.clear();
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  write(data: Uint8Array, transfer = true): Promise<void> {
-    return new Promise((resolve) => {
+  async write(data: Uint8Array, transfer = true): Promise<void> {
+    return await new Promise((resolve) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, () => {
         this._callbacks.delete(callId);
@@ -116,9 +115,8 @@ export class TcpSocketRenderer extends EventEmitter<TcpSocketRendererEvents> {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  private _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
-    return new Promise((resolve) => {
+  private async _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
+    return await new Promise((resolve) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (result) => {
         this._callbacks.delete(callId);
