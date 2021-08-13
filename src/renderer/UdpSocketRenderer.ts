@@ -82,14 +82,14 @@ export class UdpSocketRenderer extends EventEmitter<UdpSocketRendererEvents> {
   async bind(options: UdpBindOptions): Promise<void> {
     const res = await this._apiCall("bind", options);
     if (res[0] != undefined) {
-      return Promise.reject(new Error(res[0] as string));
+      throw new Error(res[0] as string);
     }
   }
 
   async connect(port: number, address?: string): Promise<void> {
     const res = await this._apiCall("connect", port, address);
     if (res[0] != undefined) {
-      return Promise.reject(new Error(res[0] as string));
+      throw new Error(res[0] as string);
     }
   }
 
@@ -125,7 +125,8 @@ export class UdpSocketRenderer extends EventEmitter<UdpSocketRendererEvents> {
     );
   }
 
-  async send(
+  // eslint-disable-next-line @typescript-eslint/promise-function-async
+  send(
     data: Uint8Array,
     offset?: number,
     length?: number,
@@ -176,6 +177,7 @@ export class UdpSocketRenderer extends EventEmitter<UdpSocketRendererEvents> {
     await this._apiCall("setTTL", ttl);
   }
 
+  // eslint-disable-next-line @typescript-eslint/promise-function-async
   private _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
     return new Promise((resolve) => {
       const callId = this._nextCallId++;

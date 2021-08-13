@@ -61,7 +61,7 @@ export class TcpServerRenderer extends EventEmitter<TcpServerRendererEvents> {
   async listen(port?: number, hostname?: string, backlog?: number): Promise<void> {
     const res = await this._apiCall("listen", port, hostname, backlog);
     if (res[0] != undefined) {
-      return Promise.reject(new Error(res[0] as string));
+      throw new Error(res[0] as string);
     }
   }
 
@@ -76,6 +76,7 @@ export class TcpServerRenderer extends EventEmitter<TcpServerRendererEvents> {
     this._callbacks.clear();
   }
 
+  // eslint-disable-next-line @typescript-eslint/promise-function-async
   private _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
     return new Promise((resolve) => {
       const callId = this._nextCallId++;

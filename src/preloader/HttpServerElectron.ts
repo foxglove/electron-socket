@@ -70,6 +70,7 @@ export class HttpServerElectron {
     return addr;
   }
 
+  // eslint-disable-next-line @typescript-eslint/promise-function-async
   listen(port?: number, hostname?: string, backlog?: number): Promise<void> {
     return new Promise((resolve, reject) => {
       this._server.listen(port, hostname, backlog, () => {
@@ -109,7 +110,7 @@ export class HttpServerElectron {
       const body = Buffer.concat(chunks).toString();
 
       const requestId = this._nextRequestId++;
-      this._requests.set(requestId, (incomingRes): Promise<void> => {
+      this._requests.set(requestId, async (incomingRes): Promise<void> => {
         res.chunkedEncoding = incomingRes.chunkedEncoding ?? res.chunkedEncoding;
         res.shouldKeepAlive = incomingRes.shouldKeepAlive ?? res.shouldKeepAlive;
         res.useChunkedEncodingByDefault =
@@ -117,7 +118,7 @@ export class HttpServerElectron {
         res.sendDate = incomingRes.sendDate ?? res.sendDate;
 
         res.writeHead(incomingRes.statusCode, incomingRes.statusMessage, incomingRes.headers);
-        return new Promise((resolve) => res.end(incomingRes.body, resolve));
+        return await new Promise((resolve) => res.end(incomingRes.body, resolve));
       });
 
       const request: HttpRequest = {

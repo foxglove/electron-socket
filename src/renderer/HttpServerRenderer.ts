@@ -39,6 +39,7 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
   constructor(messagePort: MessagePort, requestHandler?: HttpHandler) {
     super();
     this._messagePort = messagePort;
+    // eslint-disable-next-line @typescript-eslint/promise-function-async
     this.handler = requestHandler ?? (() => Promise.resolve({ statusCode: 404 }));
 
     messagePort.onmessage = (ev: MessageEvent<RpcResponse | RpcEvent>) => {
@@ -78,7 +79,7 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
     const res = await this._apiCall("listen", port, hostname, backlog);
     const err = res[0] as string | undefined;
     if (err != undefined) {
-      return Promise.reject(new Error(err));
+      throw new Error(err);
     }
 
     // Store the URL and port we are listening at
@@ -103,6 +104,7 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
     this._callbacks.clear();
   }
 
+  // eslint-disable-next-line @typescript-eslint/promise-function-async
   _apiCall(methodName: string, ...args: Cloneable[]): Promise<Cloneable[]> {
     return new Promise((resolve) => {
       const callId = this._nextCallId++;

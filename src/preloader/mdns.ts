@@ -12,6 +12,7 @@ export type MDnsResponse = {
   rinfo: dgram.RemoteInfo;
 };
 
+// eslint-disable-next-line @typescript-eslint/promise-function-async
 export function mdns4Request(
   hostname: string,
   timeoutMs = 8000,

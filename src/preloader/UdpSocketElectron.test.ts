@@ -25,6 +25,20 @@ const PORT1 = 37856;
 const PORT2 = 37857;
 const SOCKET_OPTS: SocketOptions = { type: "udp4", reuseAddr: true };
 
+function bytesEqual(a: Uint8Array, b: Uint8Array): boolean {
+  if (a.length !== b.length) {
+    return false;
+  }
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 describe("UdpSocketElectron", () => {
   it("can send and receive data", async () => {
     const socket1 = new UdpSocketElectron(0, new MessagePort(), createSocket(SOCKET_OPTS));
@@ -40,7 +54,7 @@ describe("UdpSocketElectron", () => {
     await socket1.send(new Uint8Array([1, 2, 3]));
 
     const [data, rinfo] = await receive;
-    expect(data.buffer).toEqual(new Uint8Array([1, 2, 3]).buffer);
+    expect(bytesEqual(data, new Uint8Array([1, 2, 3]))).toEqual(true);
     expect(rinfo.address).toEqual("127.0.0.1");
     expect(rinfo.port).toEqual(PORT1);
     expect(rinfo.family).toEqual("IPv4");
