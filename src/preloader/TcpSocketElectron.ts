@@ -137,6 +137,7 @@ export class TcpSocketElectron {
     return !this._socket.destroyed && this._socket.localAddress != undefined;
   }
 
+  // eslint-disable-next-line @typescript-eslint/promise-function-async
   connect(): Promise<void> {
     return new Promise((resolve, reject) => {
       this._socket
@@ -159,6 +160,7 @@ export class TcpSocketElectron {
     this._messagePort.close();
   }
 
+  // eslint-disable-next-line @typescript-eslint/promise-function-async
   write(data: Uint8Array): Promise<void> {
     return new Promise((resolve, reject) => {
       this._socket.write(data, (err) => {

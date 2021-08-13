@@ -27,7 +27,7 @@ export class MDnsResolver {
     // Check if there is already a pending request for this hostname
     let pending = this.pendingLookups.get(hostname);
     if (pending != undefined) {
-      return pending;
+      return await pending;
     }
 
     // Start an mDNS request

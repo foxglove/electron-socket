@@ -54,6 +54,7 @@ export class TcpServerElectron {
     return addr;
   }
 
+  // eslint-disable-next-line @typescript-eslint/promise-function-async
   listen(port?: number, hostname?: string, backlog?: number): Promise<void> {
     return new Promise((resolve, reject) => {
       this._server.listen(port, hostname, backlog, () => {
