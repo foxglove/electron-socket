@@ -70,9 +70,8 @@ export class HttpServerElectron {
     return addr;
   }
 
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  listen(port?: number, hostname?: string, backlog?: number): Promise<void> {
-    return new Promise((resolve, reject) => {
+  async listen(port?: number, hostname?: string, backlog?: number): Promise<void> {
+    return await new Promise((resolve, reject) => {
       this._server.listen(port, hostname, backlog, () => {
         this._server.removeListener("error", reject);
         resolve();
