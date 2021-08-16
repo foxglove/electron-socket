@@ -78,6 +78,7 @@ function mdns4RequestOnIface(
 
   socket.on("close", () => {
     clearTimeout(timeout);
+    socket.removeAllListeners();
   });
 
   socket.bind(PORT, iface, () => {
@@ -89,8 +90,12 @@ function mdns4RequestOnIface(
     });
 
     const sendMessage = () => {
-      socket.send(message, 0, message.length, PORT, BROADCAST_IP);
-      timeout = setTimeout(sendMessage, MIN_RETRY_MS + Math.random() * RETRY_JITTER_MS);
+      try {
+        socket.send(message, 0, message.length, PORT, BROADCAST_IP);
+        timeout = setTimeout(sendMessage, MIN_RETRY_MS + Math.random() * RETRY_JITTER_MS);
+      } catch {
+        // ignore
+      }
     };
 
     sendMessage();
