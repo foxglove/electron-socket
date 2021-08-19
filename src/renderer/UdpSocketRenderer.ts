@@ -15,7 +15,7 @@ export class UdpSocketRenderer extends EventEmitter<UdpSocketRendererEvents> {
   private _messagePort: MessagePort;
   private _callbacks = new Map<number, (result: Cloneable[]) => void>();
   private _nextCallId = 0;
-  private _events = new Map<string, (args: Cloneable[], ports?: readonly MessagePort[]) => void>([
+  private _eventMap = new Map<string, (args: Cloneable[], ports?: readonly MessagePort[]) => void>([
     ["connect", () => this.emit("connect")],
     ["close", () => this.emit("close")],
     ["listening", () => this.emit("listening")],
@@ -40,7 +40,7 @@ export class UdpSocketRenderer extends EventEmitter<UdpSocketRendererEvents> {
       } else {
         // RpcEvent
         const eventName = ev.data[0];
-        const handler = this._events.get(eventName);
+        const handler = this._eventMap.get(eventName);
         handler?.(args, ev.ports);
       }
     };

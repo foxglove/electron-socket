@@ -17,7 +17,7 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
   private _messagePort: MessagePort;
   private _callbacks = new Map<number, (result: Cloneable[]) => void>();
   private _nextCallId = 0;
-  private _events = new Map<string, (args: Cloneable[], ports?: readonly MessagePort[]) => void>([
+  private _eventMap = new Map<string, (args: Cloneable[], ports?: readonly MessagePort[]) => void>([
     ["close", () => this.emit("close")],
     [
       "request",
@@ -54,7 +54,7 @@ export class HttpServerRenderer extends EventEmitter<HttpServerRendererEvents> {
       } else {
         // RpcEvent
         const eventName = ev.data[0];
-        const handler = this._events.get(eventName);
+        const handler = this._eventMap.get(eventName);
         handler?.(args, ev.ports);
       }
     };
