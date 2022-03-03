@@ -99,7 +99,7 @@ export class TcpSocketRenderer extends EventEmitter<TcpSocketRendererEvents> {
     this._callbacks.clear();
   }
 
-  async write(data: Uint8Array, transfer = true): Promise<void> {
+  async write(data: Uint8Array, transfer = false): Promise<void> {
     return await new Promise((resolve) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, () => {

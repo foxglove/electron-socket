@@ -131,7 +131,7 @@ export class UdpSocketRenderer extends EventEmitter<UdpSocketRendererEvents> {
     length?: number,
     port?: number,
     address?: string,
-    transfer = true,
+    transfer = false,
   ): Promise<void> {
     return await new Promise((resolve) => {
       const callId = this._nextCallId++;
