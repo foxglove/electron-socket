@@ -109,15 +109,22 @@ export class HttpServerElectron {
       const body = Buffer.concat(chunks).toString();
 
       const requestId = this._nextRequestId++;
-      this._requests.set(requestId, async (incomingRes): Promise<void> => {
-        res.chunkedEncoding = incomingRes.chunkedEncoding ?? res.chunkedEncoding;
-        res.shouldKeepAlive = incomingRes.shouldKeepAlive ?? res.shouldKeepAlive;
-        res.useChunkedEncodingByDefault =
-          incomingRes.useChunkedEncodingByDefault ?? res.useChunkedEncodingByDefault;
-        res.sendDate = incomingRes.sendDate ?? res.sendDate;
-
-        res.writeHead(incomingRes.statusCode, incomingRes.statusMessage, incomingRes.headers);
-        return await new Promise((resolve) => res.end(incomingRes.body, resolve));
+      this._requests.set(requestId, async (out): Promise<void> => {
+        res.shouldKeepAlive = out.shouldKeepAlive ?? res.shouldKeepAlive;
+        res.statusCode = out.statusCode;
+        res.statusMessage = out.statusMessage ?? "";
+        res.sendDate = out.sendDate ?? res.sendDate;
+        let hasContentLength = false;
+        for (const [key, value] of Object.entries(out.headers ?? {})) {
+          if (!hasContentLength && key.toLowerCase() === "content-length") {
+            hasContentLength = true;
+          }
+          res.setHeader(key, value);
+        }
+        if (out.body != undefined && !hasContentLength) {
+          res.setHeader("Content-Length", Buffer.byteLength(out.body));
+        }
+        res.end(out.body);
       });
 
       const request: HttpRequest = {

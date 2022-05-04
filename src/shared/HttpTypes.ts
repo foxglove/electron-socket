@@ -22,9 +22,7 @@ export type HttpResponse = {
   statusMessage?: string;
   headers?: HttpHeaders;
   body?: string;
-  chunkedEncoding?: boolean;
   shouldKeepAlive?: boolean;
-  useChunkedEncodingByDefault?: boolean;
   sendDate?: boolean;
 };
 
