@@ -17,6 +17,9 @@ export type HttpRequest = {
   url?: string;
   socket: {
     localAddress: string;
+    localPort: number;
+    remoteAddress?: string;
+    remotePort?: number;
   };
 };
 
