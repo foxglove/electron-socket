@@ -140,6 +140,9 @@ export class HttpServerElectron {
         rawTrailers: req.rawTrailers,
         method: req.method,
         url: req.url,
+        socket: {
+          localAddress: req.socket.localAddress,
+        },
       };
       this._emit("request", requestId, request);
     });
