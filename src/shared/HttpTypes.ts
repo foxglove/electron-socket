@@ -15,6 +15,12 @@ export type HttpRequest = {
   rawTrailers: string[];
   method?: string;
   url?: string;
+  socket: {
+    localAddress: string;
+    localPort: number;
+    remoteAddress?: string;
+    remotePort?: number;
+  };
 };
 
 export type HttpResponse = {
