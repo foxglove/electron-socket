@@ -41,7 +41,7 @@ function bytesEqual(a: Uint8Array, b: Uint8Array): boolean {
 
 describe("UdpSocketElectron", () => {
   it("can send and receive data", async () => {
-    const socket1 = new UdpSocketElectron(0, new MessagePort(), createSocket(SOCKET_OPTS));
+    const socket1 = new UdpSocketElectron(() => new MessageChannel(), 0, new MessagePort(), createSocket(SOCKET_OPTS));
     const socket2 = createSocket(SOCKET_OPTS);
 
     await new Promise<void>((resolve) => socket2.bind(PORT2, resolve));

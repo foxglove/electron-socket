@@ -1,12 +1,13 @@
-import { MessagePortLike } from "../shared/MessagePort.js";
+import { ipcMain, MessageChannelMain } from "electron";
+import { createHttpServer, createServer, createSocket, createUdpSocket } from "../preloader/api.js";
+import { ConvertToMessagePort, MessageChannelLike, MessagePortLike } from "../shared/MessagePort.js";
 import { Cloneable, RpcCall } from "../shared/Rpc.js";
-import { createHttpServer, createServer, createSocket, createUdpSocket } from "./api.js";
 
-function messageChannelFactory() {
-  return new MessageChannel();
+function messageChannelFactoryMain(): MessageChannelLike {
+  return (new MessageChannelMain() as unknown) as MessageChannelLike;
 }
 
-export class PreloaderSockets {
+export class MainSockets {
   // The preloader ("isolated world") side of the original message channel
   // connecting to the renderer ("main world"). Function calls such as
   // createSocket() and createServer() come in on this channel, and function
@@ -17,7 +18,7 @@ export class PreloaderSockets {
     [
       "createHttpServer",
       (callId, _) => {
-        const port = createHttpServer(messageChannelFactory);
+        const port = createHttpServer(messageChannelFactoryMain);
         this._messagePort.postMessage([callId], [port]);
       },
     ],
@@ -26,7 +27,7 @@ export class PreloaderSockets {
       (callId, args) => {
         const host = args[0] as string;
         const port = args[1] as number;
-        const msgPort = createSocket(messageChannelFactory, host, port);
+        const msgPort = createSocket(messageChannelFactoryMain, host, port);
         if (msgPort == undefined) {
           this._messagePort.postMessage([callId, `createSocket(${host}, ${port}) failed`]);
         } else {
@@ -37,7 +38,7 @@ export class PreloaderSockets {
     [
       "createServer",
       (callId, _args) => {
-        const msgPort = createServer(messageChannelFactory);
+        const msgPort = createServer(messageChannelFactoryMain);
         if (msgPort == undefined) {
           this._messagePort.postMessage([callId, `createServer() failed`]);
         } else {
@@ -48,7 +49,7 @@ export class PreloaderSockets {
     [
       "createUdpSocket",
       (callId, _args) => {
-        const msgPort = createUdpSocket(messageChannelFactory);
+        const msgPort = createUdpSocket(messageChannelFactoryMain);
         if (msgPort == undefined) {
           this._messagePort.postMessage([callId, `createUdpSocket() failed`]);
         } else {
@@ -58,13 +59,13 @@ export class PreloaderSockets {
     ],
   ]);
 
-  // A map of created `PreloaderSockets` instances
-  static registeredSockets = new Map<string, PreloaderSockets>();
+  // A map of created `MainSockets` instances
+  static registeredSockets = new Map<string, MainSockets>();
 
-  constructor(messagePort: MessagePort) {
+  constructor(messagePort: MessagePortLike) {
     this._messagePort = messagePort;
 
-    messagePort.onmessage = (ev: MessageEvent<RpcCall>) => {
+    messagePort.addEventListener('message', (ev: MessageEvent<RpcCall>) => {
       const methodName = ev.data[0];
       const callId = ev.data[1];
       const handler = this._functionHandlers.get(methodName);
@@ -75,34 +76,21 @@ export class PreloaderSockets {
 
       const args = ev.data.slice(2);
       handler(callId, args);
-    };
+    });
     messagePort.start();
   }
 
-  static async Create(channel = "__electron_socket"): Promise<PreloaderSockets> {
-    const windowLoaded = new Promise<void>((resolve) => {
-      if (document.readyState === "complete") {
-        resolve();
-        return;
-      }
-      const loaded = () => {
-        window.removeEventListener("load", loaded);
-        resolve();
-      };
-      window.addEventListener("load", loaded);
+  static async Init() {
+    ipcMain.on('__electron_socket_main', (event, channel) => {
+      // const sockets = MainSockets.registeredSockets.get(channel);
+      // if (sockets) {
+      //   return;
+      // }
+      const messageChannel = new MessageChannelMain();
+      const newSockets = new MainSockets(ConvertToMessagePort(messageChannel.port2));
+      newSockets;
+      // MainSockets.registeredSockets.set(channel, newSockets);
+      event.sender.postMessage(channel, '', [messageChannel.port1]);
     });
-
-    await windowLoaded;
-
-    const entry = PreloaderSockets.registeredSockets.get(channel);
-    if (entry != undefined) {
-      return entry;
-    }
-
-    const messageChannel = new MessageChannel();
-    const sockets = new PreloaderSockets(messageChannel.port2);
-    PreloaderSockets.registeredSockets.set(channel, sockets);
-    window.postMessage(channel, "*", [messageChannel.port1]);
-    return sockets;
   }
 }

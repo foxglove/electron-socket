@@ -1,4 +1,5 @@
 import net from "net";
+import { MessageChannelFactory, MessagePortLike } from "../shared/MessagePort.js";
 
 import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc.js";
 import { TcpAddress } from "../shared/TcpTypes.js";
@@ -12,10 +13,10 @@ type MaybeHasFd = {
 
 export class TcpSocketElectron {
   readonly id: number;
-  readonly host: string;
-  readonly port: number;
+  host: string;
+  port: number;
   private _socket: net.Socket;
-  private _messagePort: MessagePort;
+  private _messagePort: MessagePortLike;
   private _api = new Map<string, RpcHandler>([
     ["remoteAddress", (callId) => this._apiResponse(callId, this.remoteAddress())],
     ["localAddress", (callId) => this._apiResponse(callId, this.localAddress())],
@@ -48,8 +49,8 @@ export class TcpSocketElectron {
     ["connected", (callId) => this._apiResponse(callId, this.connected())],
     [
       "connect",
-      (callId, _) => {
-        this.connect()
+      (callId, args) => {
+        this.connect((args[0] as unknown) as net.SocketConnectOpts)
           .then(() => this._apiResponse(callId, undefined))
           .catch((err: Error) => this._apiResponse(callId, String(err.stack ?? err)));
       },
@@ -67,13 +68,14 @@ export class TcpSocketElectron {
     ],
   ]);
 
-  constructor(
+  constructor(messageChannelFactory: MessageChannelFactory,
     id: number,
-    messagePort: MessagePort,
+    messagePort: MessagePortLike,
     host: string,
     port: number,
     socket: net.Socket,
   ) {
+    messageChannelFactory;
     this.id = id;
     this.host = host;
     this.port = port;
@@ -86,12 +88,12 @@ export class TcpSocketElectron {
     this._socket.on("timeout", () => this._emit("timeout"));
     this._socket.on("error", (err) => this._emit("error", String(err.stack ?? err)));
 
-    messagePort.onmessage = (ev: MessageEvent<RpcCall>) => {
+    messagePort.addEventListener('message', (ev: MessageEvent<RpcCall>) => {
       const [methodName, callId] = ev.data;
       const args = ev.data.slice(2);
       const handler = this._api.get(methodName);
       handler?.(callId, args);
-    };
+    });
     messagePort.start();
   }
 
@@ -137,10 +139,10 @@ export class TcpSocketElectron {
     return !this._socket.destroyed && this._socket.localAddress != undefined;
   }
 
-  async connect(): Promise<void> {
+  async connect(options: net.SocketConnectOpts): Promise<void> {
     return await new Promise((resolve, reject) => {
       this._socket
-        .connect({ host: this.host, port: this.port, lookup: dnsLookup }, () => {
+        .connect({...options, lookup: dnsLookup }, () => {
           this._socket.removeListener("error", reject);
           resolve();
           this._emit("connect");
@@ -185,6 +187,6 @@ export class TcpSocketElectron {
 
   private _handleData = (data: Uint8Array): void => {
     const msg: Cloneable[] = ["data", data];
-    this._messagePort.postMessage(msg, [data.buffer]);
+    this._messagePort.postMessage(msg);
   };
 }

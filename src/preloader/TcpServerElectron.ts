@@ -4,11 +4,13 @@ import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc.js";
 import { TcpAddress } from "../shared/TcpTypes.js";
 import { TcpSocketElectron } from "./TcpSocketElectron.js";
 import { nextId, registerEntity } from "./registry.js";
+import { ConvertToMessagePort, MessageChannelFactory, MessagePortLike } from "../shared/MessagePort.js";
 
 export class TcpServerElectron {
   readonly id: number;
+  readonly messageChannelFactory: MessageChannelFactory;
   private _server: net.Server;
-  private _messagePort: MessagePort;
+  private _messagePort: MessagePortLike;
   private _api = new Map<string, RpcHandler>([
     ["address", (callId) => this._apiResponse([callId, this.address()])],
     [
@@ -26,7 +28,8 @@ export class TcpServerElectron {
     ["dispose", (callId) => this._apiResponse([callId, this.dispose()])],
   ]);
 
-  constructor(id: number, messagePort: MessagePort) {
+  constructor(messageChannelFactory: MessageChannelFactory, id: number, messagePort: MessagePortLike) {
+    this.messageChannelFactory = messageChannelFactory;
     this.id = id;
     this._server = net.createServer();
     this._messagePort = messagePort;
@@ -35,12 +38,12 @@ export class TcpServerElectron {
     this._server.on("connection", (socket) => this._emitConnection(socket));
     this._server.on("error", (err) => this._emit("error", String(err.stack ?? err)));
 
-    messagePort.onmessage = (ev: MessageEvent<RpcCall>) => {
+    messagePort.addEventListener('message', (ev: MessageEvent<RpcCall>) => {
       const [methodName, callId] = ev.data;
       const args = ev.data.slice(2);
       const handler = this._api.get(methodName);
       handler?.(callId, args);
-    };
+    });
     messagePort.start();
   }
 
@@ -88,10 +91,10 @@ export class TcpServerElectron {
 
   private _emitConnection(socket: net.Socket): void {
     const id = nextId();
-    const channel = new MessageChannel();
+    const channel = this.messageChannelFactory();
     const host = socket.remoteAddress as string;
     const port = socket.remotePort as number;
-    const electronSocket = new TcpSocketElectron(id, channel.port2, host, port, socket);
+    const electronSocket = new TcpSocketElectron(this.messageChannelFactory, id, ConvertToMessagePort(channel.port2), host, port, socket);
     registerEntity(id, electronSocket);
     this._messagePort.postMessage(["connection"], [channel.port1]);
   }

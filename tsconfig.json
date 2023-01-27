@@ -1,7 +1,7 @@
 {
   "include": ["./src/**/*.ts"],
   "compilerOptions": {
-    "module": "es2020",
+    "module": "commonjs",
     "target": "es2020",
     "lib": ["dom", "es2020"],
     "rootDir": "./src",

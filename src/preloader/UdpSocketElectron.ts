@@ -1,4 +1,5 @@
 import dgram from "dgram";
+import { MessageChannelFactory, MessagePortLike } from "../shared/MessagePort.js";
 
 import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc.js";
 import { UdpAddress } from "../shared/UdpTypes.js";
@@ -12,7 +13,7 @@ type MaybeHasFd = {
 export class UdpSocketElectron {
   readonly id: number;
   private _socket: dgram.Socket;
-  private _messagePort: MessagePort;
+  private _messagePort: MessagePortLike;
   private _api = new Map<string, RpcHandler>([
     ["remoteAddress", (callId) => this._apiResponse(callId, this.remoteAddress())],
     ["localAddress", (callId) => this._apiResponse(callId, this.localAddress())],
@@ -160,7 +161,8 @@ export class UdpSocketElectron {
     ],
   ]);
 
-  constructor(id: number, messagePort: MessagePort, socket: dgram.Socket) {
+  constructor(messageChannelFactory: MessageChannelFactory, id: number, messagePort: MessagePortLike, socket: dgram.Socket) {
+    messageChannelFactory;
     this.id = id;
     this._socket = socket;
     this._messagePort = messagePort;
@@ -171,12 +173,12 @@ export class UdpSocketElectron {
     this._socket.on("listening", () => this._emit("listening"));
     this._socket.on("error", (err) => this._emit("error", String(err.stack ?? err)));
 
-    messagePort.onmessage = (ev: MessageEvent<RpcCall>) => {
+    messagePort.addEventListener('message', (ev: MessageEvent<RpcCall>) => {
       const [methodName, callId] = ev.data;
       const args = ev.data.slice(2);
       const handler = this._api.get(methodName);
       handler?.(callId, args);
-    };
+    });
     messagePort.start();
   }
 

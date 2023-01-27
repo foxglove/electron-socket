@@ -1,13 +1,14 @@
 import http from "http";
 
 import { HttpRequest, HttpResponse } from "../shared/HttpTypes.js";
+import { MessageChannelFactory, MessagePortLike } from "../shared/MessagePort.js";
 import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc.js";
 import { TcpAddress } from "../shared/TcpTypes.js";
 
 export class HttpServerElectron {
   readonly id: number;
   private _server: http.Server;
-  private _messagePort: MessagePort;
+  private _messagePort: MessagePortLike;
   private _nextRequestId = 0;
   private _requests = new Map<number, (response: HttpResponse) => Promise<void>>();
   private _api = new Map<string, RpcHandler>([
@@ -43,7 +44,8 @@ export class HttpServerElectron {
     ["dispose", (callId) => this._apiResponse([callId, this.dispose()])],
   ]);
 
-  constructor(id: number, messagePort: MessagePort) {
+  constructor(messageChannelFactory: MessageChannelFactory, id: number, messagePort: MessagePortLike) {
+    messageChannelFactory;
     this.id = id;
     this._server = http.createServer(this._handleRequest);
     this._messagePort = messagePort;
@@ -51,12 +53,12 @@ export class HttpServerElectron {
     this._server.on("close", () => this._emit("close"));
     this._server.on("error", (err) => this._emit("error", String(err.stack ?? err)));
 
-    messagePort.onmessage = (ev: MessageEvent<RpcCall>) => {
+    messagePort.addEventListener('message', (ev: MessageEvent<RpcCall>) => {
       const [methodName, callId] = ev.data;
       const args = ev.data.slice(2);
       const handler = this._api.get(methodName);
       handler?.(callId, args);
-    };
+    });
     messagePort.start();
   }
 

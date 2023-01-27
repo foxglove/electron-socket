@@ -1,3 +1,4 @@
+import net from "net";
 import EventEmitter from "eventemitter3";
 
 import { Cloneable, RpcCall, RpcEvent, RpcResponse } from "../shared/Rpc.js";
@@ -81,8 +82,8 @@ export class TcpSocketRenderer extends EventEmitter<TcpSocketRendererEvents> {
     return res[0] as boolean;
   }
 
-  async connect(): Promise<void> {
-    const res = await this._apiCall("connect");
+  async connect(options: net.SocketConnectOpts): Promise<void> {
+    const res = await this._apiCall("connect", options as any);
     if (res[0] != undefined) {
       throw new Error(res[0] as string);
     }

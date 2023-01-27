@@ -13,7 +13,7 @@
     "email": "contact@foxglove.dev"
   },
   "homepage": "https://github.com/foxglove/electron-socket",
-  "type": "module",
+  "type": "commonjs",
   "exports": {
     "./preloader": "./dist/preloader/index.js",
     "./renderer": "./dist/renderer/index.js"
@@ -25,7 +25,11 @@
     "*.d.ts"
   ],
   "scripts": {
-    "build": "tsc -b",
+    "build": "tsc -b && npm run browserify",
+    "browserify": "npm run browserify-app:preload && npm run browserify-app:js",
+    "browserify-app:preload": "browserify -o ./test/electron-app/page-preload.bundle.js -x electron ./test/electron-app/page-preload.js",
+    "browserify-app:js": "browserify -o ./test/electron-app/page.bundle.js -x electron ./test/electron-app/page.js",
+    "run-app": "electron --disable-sandbox ./test/electron-app/app.js",
     "lint:ci": "eslint --report-unused-disable-directives .",
     "lint": "eslint --report-unused-disable-directives --fix .",
     "prepack": "yarn build",
@@ -33,11 +37,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "browserify": "^17.0.0",
     "dns-packet": "^5.2.4",
     "eventemitter3": "^4.0.7"
   },
   "peerDependencies": {
-    "electron": ">=12"
+    "electron": "^22.1.0"
   },
   "devDependencies": {
     "@foxglove/eslint-plugin": "0.14.0",
