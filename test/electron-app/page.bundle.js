@@ -931,7 +931,7 @@ if ('undefined' !== typeof module) {
 },{}],8:[function(require,module,exports){
 
 window.addEventListener('load', async () => {
-    const electronSocket = require('../../dist/renderer/SocketsMain');
+    const electronSocket = require('../../dist/cjs/renderer/SocketsMain');
 
     const net = await electronSocket.SocketsMain.Create();
     
@@ -946,4 +946,4 @@ window.addEventListener('load', async () => {
     socket.connect({ port: 9900, host: "localhost" });
 });
 
-},{"../../dist/renderer/SocketsMain":3}]},{},[8]);
+},{"../../dist/cjs/renderer/SocketsMain":3}]},{},[8]);

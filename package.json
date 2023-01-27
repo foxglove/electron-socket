@@ -15,8 +15,26 @@
   "homepage": "https://github.com/foxglove/electron-socket",
   "type": "commonjs",
   "exports": {
-    "./preloader": "./dist/preloader/index.js",
-    "./renderer": "./dist/renderer/index.js"
+    "main": {
+      "import": "./dist/esm/main/index.js",
+      "require": "./dist/csj/main/index.js"
+    },
+    "mainPreloader": {
+      "import": "./dist/esm/preloader/PreloaderSocketsMain.js",
+      "require": "./dist/csj/preloader/PreloaderSocketsMain.js"
+    },
+    "mainRenderer": {
+      "import": "./dist/esm/renderer/SocketsMain.js",
+      "require": "./dist/csj/renderer/SocketsMain.js"
+    },
+    "preloader": {
+      "import": "./dist/esm/preloader/index.js",
+      "require": "./dist/csj/preloader/index.js"
+    },
+    "renderer": {
+      "import": "./dist/esm/renderer/index.js",
+      "require": "./dist/csj/renderer/index.js"
+    }
   },
   "files": [
     "dist",
@@ -25,7 +43,8 @@
     "*.d.ts"
   ],
   "scripts": {
-    "build": "tsc -b && npm run browserify",
+    "clean": "del-cli -f dist",
+    "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && npm run browserify",
     "browserify": "npm run browserify-app:preload && npm run browserify-app:js",
     "browserify-app:preload": "browserify -o ./test/electron-app/page-preload.bundle.js -x electron ./test/electron-app/page-preload.js",
     "browserify-app:js": "browserify -o ./test/electron-app/page.bundle.js -x electron ./test/electron-app/page.js",
@@ -38,6 +57,7 @@
   },
   "dependencies": {
     "browserify": "^17.0.0",
+    "del-cli": "^5.0.0",
     "dns-packet": "^5.2.4",
     "eventemitter3": "^4.0.7"
   },

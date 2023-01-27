@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 
-const electronSocket = require('../../dist/main/MainSockets');
+const electronSocket = require('../../dist/cjs/main');
 
 let done
 let x = 100, y = 100

@@ -12,8 +12,8 @@ exports.PreloaderSocketsMain = PreloaderSocketsMain;
 
 },{"electron":"electron"}],2:[function(require,module,exports){
 
-const electronSocket = require('../../dist/preloader/PreloaderSocketsMain');
+const electronSocket = require('../../dist/cjs/preloader/PreloaderSocketsMain');
 
 electronSocket.PreloaderSocketsMain.Init();
 
-},{"../../dist/preloader/PreloaderSocketsMain":1}]},{},[2]);
+},{"../../dist/cjs/preloader/PreloaderSocketsMain":1}]},{},[2]);
