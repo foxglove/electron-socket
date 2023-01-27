@@ -1,18 +1,18 @@
 {
-  "name": "@foxglove/electron-socket",
+  "name": "@devolutionary/electron-socket",
   "private": false,
-  "version": "2.1.0",
+  "version": "3.0.0-beta.2",
   "description": "Networking sockets for Electron apps",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/foxglove/electron-socket.git"
+    "url": "https://github.com/emmkimme/electron-socket.git"
   },
   "author": {
     "name": "Foxglove",
-    "email": "contact@foxglove.dev"
+    "email": "contact@emmkimme.dev"
   },
-  "homepage": "https://github.com/foxglove/electron-socket",
+  "homepage": "https://github.com/emmkimme/electron-socket",
   "type": "commonjs",
   "exports": {
     "./main": {
@@ -54,13 +54,12 @@
     "run:app": "electron --disable-sandbox ./test/electron-app/app.js",
     "lint:ci": "eslint --report-unused-disable-directives .",
     "lint": "eslint --report-unused-disable-directives --fix .",
-    "prepack": "yarn build",
-    "prepublishOnly": "yarn lint:ci && yarn test",
+    "#prepack": "yarn build",
+    "#prepublishOnly": "yarn lint:ci && yarn test",
     "test": "jest"
   },
   "dependencies": {
     "browserify": "^17.0.0",
-    "del-cli": "^5.0.0",
     "dns-packet": "^5.2.4",
     "eventemitter3": "^4.0.7"
   },
@@ -68,11 +67,12 @@
     "electron": "^22.1.0"
   },
   "devDependencies": {
-    "@foxglove/eslint-plugin": "0.14.0",
+    "@emmkimme/eslint-plugin": "0.14.0",
     "@types/dns-packet": "5.2.2",
     "@types/jest": "^27.0.1",
     "@typescript-eslint/eslint-plugin": "4.29.2",
     "@typescript-eslint/parser": "4.29.2",
+    "del-cli": "^5.0.0",
     "esbuild": "0.12.20",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
@@ -85,5 +85,10 @@
     "prettier": "2.3.2",
     "ts-jest": "27.0.5",
     "typescript": "4.3.5"
+  },
+  "publishConfig": {
+    "registry": "https://bams-aws.refinitiv.com/artifactory/default.npm.cloud/UniversalContainer/",
+    "autoPublish": true,
+    "usePackageVersion": true
   }
 }
