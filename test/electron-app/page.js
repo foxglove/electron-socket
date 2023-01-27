@@ -1,6 +1,6 @@
 
 window.addEventListener('load', async () => {
-    const electronSocket = require('../../dist/cjs/renderer/SocketsMain');
+    const electronSocket = require('electron-socket/dist/cjs/renderer/SocketsMain');
 
     const net = await electronSocket.SocketsMain.Create();
     

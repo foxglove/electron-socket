@@ -1,0 +1,6 @@
+{
+  "name": "electron-socket/tests",
+  "dependencies": {
+    "electron-socket": "../.."
+  }
+}
