@@ -2,7 +2,7 @@ import net from "net";
 import { MessageChannelFactory, MessagePortLike } from "../shared/MessagePort.js";
 
 import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc.js";
-import { TcpAddress } from "../shared/TcpTypes.js";
+import { TcpAddress, TcpSocketConnectOptions } from "../shared/TcpTypes.js";
 import { dnsLookup } from "./dns.js";
 
 type MaybeHasFd = {
@@ -50,7 +50,7 @@ export class TcpSocketElectron {
     [
       "connect",
       (callId, args) => {
-        this.connect((args[0] as unknown) as net.SocketConnectOpts)
+        this.connect((args[0] as unknown) as TcpSocketConnectOptions)
           .then(() => this._apiResponse(callId, undefined))
           .catch((err: Error) => this._apiResponse(callId, String(err.stack ?? err)));
       },
@@ -139,7 +139,7 @@ export class TcpSocketElectron {
     return !this._socket.destroyed && this._socket.localAddress != undefined;
   }
 
-  async connect(options: net.SocketConnectOpts): Promise<void> {
+  async connect(options: TcpSocketConnectOptions): Promise<void> {
     return await new Promise((resolve, reject) => {
       this._socket
         .connect({...options, lookup: dnsLookup }, () => {
