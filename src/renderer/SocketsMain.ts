@@ -12,18 +12,12 @@ export class SocketsMain {
       return await entry;
     }
 
-    const promise = new Promise<Sockets>((resolve) => {
-      const ipcRenderer: typeof import('electron').ipcRenderer = (window as any).socketIpcRenderer;
-      ipcRenderer.send('__electron_socket_main', channel);
-      ipcRenderer.once(channel, (ev) => {
-        const messagePort = ev.ports[0];
-        if (messagePort == undefined) {
-          return;
-        }
+    const CreateSocketMessagePort = (window as any).CreateSocketMessagePort;
+    const promise = CreateSocketMessagePort(channel)
+    .then((messagePort: MessagePort) => {
         const sockets = new Sockets(messagePort);
         Sockets.registeredSockets.set(channel, sockets);
-        resolve(sockets);
-       });
+        return sockets;
     });
 
     Sockets.registeredSockets.set(channel, promise);
