@@ -16,6 +16,9 @@ export class PreloaderSocketsMain {
   }
 
   static Init(): void {
-    (window as any).CreateSocketMessagePort = PreloaderSocketsMain.Create;
+    const apis = {
+      Create: PreloaderSocketsMain.Create
+    };
+    (window as any).electronSocket = apis;
   }
 }

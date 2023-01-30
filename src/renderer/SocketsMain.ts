@@ -12,7 +12,7 @@ export class SocketsMain {
       return await entry;
     }
 
-    const CreateSocketMessagePort = (window as any).CreateSocketMessagePort;
+    const CreateSocketMessagePort = (window as any).electronSocket.Create;
     const promise = CreateSocketMessagePort(channel)
     .then((messagePort: MessagePort) => {
         const sockets = new Sockets(messagePort);
