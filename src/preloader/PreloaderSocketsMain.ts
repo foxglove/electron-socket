@@ -1,9 +1,4 @@
-import { contextBridge, ipcRenderer } from "electron";
-
-contextBridge.exposeInMainWorld('myAPI', {
-//   doAThing: () => {}
-// })
-
+import { ipcRenderer } from "electron";
 
 export class PreloaderSocketsMain {
 
