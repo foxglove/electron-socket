@@ -39,8 +39,7 @@ export class TcpServerElectron {
     this._server.on("error", (err) => this._emit("error", String(err.stack ?? err)));
 
     messagePort.addEventListener('message', (ev: MessageEvent<RpcCall>) => {
-      const [methodName, callId] = ev.data;
-      const args = ev.data.slice(2);
+      const [methodName, callId, ...args] = ev.data;
       const handler = this._api.get(methodName);
       handler?.(callId, args);
     });
@@ -92,9 +91,7 @@ export class TcpServerElectron {
   private _emitConnection(socket: net.Socket): void {
     const id = nextId();
     const channel = this.messageChannelFactory();
-    const host = socket.remoteAddress as string;
-    const port = socket.remotePort as number;
-    const electronSocket = new TcpSocketElectron(this.messageChannelFactory, id, ConvertToMessagePort(channel.port2), host, port, socket);
+    const electronSocket = new TcpSocketElectron(this.messageChannelFactory, id, ConvertToMessagePort(channel.port2), socket);
     registerEntity(id, electronSocket);
     this._messagePort.postMessage(["connection"], [channel.port1]);
   }

@@ -346,11 +346,6 @@
     "minimatch" "^3.0.4"
     "strip-json-comments" "^3.1.1"
 
-"@foxglove/eslint-plugin@0.14.0":
-  "integrity" "sha512-v+sHf5PwH9245i91nG2CO1zLjF21jsL6rhXwyObvvi29XguNum0+wJiXgem64MD6w/zbsmBx4lBYA2DAKISXAA== sha1-1VtRLLhtmOvSKLROlpSYZ5ZxMMU="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/@foxglove/eslint-plugin/-/eslint-plugin-0.14.0.tgz"
-  "version" "0.14.0"
-
 "@humanwhocodes/config-array@^0.5.0":
   "integrity" "sha512-FagtKFz74XrTl7y6HCzQpwDfXP0yhxe9lHLD1UZxjvZIcbyRz8zTFF/yYNfSfzU414eDwZ1SrO0Qvtyf+wFMQg== sha1-FAeWfUxu7Nc4j4Os8er00Mbljvk="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/@humanwhocodes/config-array/-/config-array-0.5.0.tgz"
@@ -956,6 +951,31 @@
   dependencies:
     "sprintf-js" "~1.0.2"
 
+"array-back@^3.0.1":
+  "integrity" "sha1-uIWdelCIccmnss9C+ZQo9l6Wv7A="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/array-back/-/array-back-3.1.0.tgz"
+  "version" "3.1.0"
+
+"array-back@^3.1.0":
+  "integrity" "sha1-uIWdelCIccmnss9C+ZQo9l6Wv7A="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/array-back/-/array-back-3.1.0.tgz"
+  "version" "3.1.0"
+
+"array-back@^4.0.1":
+  "integrity" "sha1-gATpmaYnRYa+6yc0IWhlL9uJ+h4="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/array-back/-/array-back-4.0.2.tgz"
+  "version" "4.0.2"
+
+"array-back@^4.0.2":
+  "integrity" "sha1-gATpmaYnRYa+6yc0IWhlL9uJ+h4="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/array-back/-/array-back-4.0.2.tgz"
+  "version" "4.0.2"
+
+"array-back@^6.2.0", "array-back@^6.2.2":
+  "integrity" "sha1-9WfZnpr4im09L538wh22+bqf0Vc="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/array-back/-/array-back-6.2.2.tgz"
+  "version" "6.2.2"
+
 "array-includes@^3.1.3":
   "integrity" "sha512-gcem1KlBU7c9rB+Rq8/3PPKsK2kjqeEBa3bD5kkQo4nYlOHQCJqIJFqBXDEfwaRuYTT4E+FxA9xez7Gf/e3Q7A== sha1-x/YZs4KtKvr1Mmzd/cCvxhr3aQo="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/array-includes/-/array-includes-3.1.3.tgz"
@@ -1402,10 +1422,28 @@
     "escape-string-regexp" "^1.0.5"
     "supports-color" "^5.3.0"
 
-"chalk@^4.0.0":
-  "integrity" "sha512-diHzdDKxcU+bAsUboHLPEDQiw0qEe0qd7SYUn3HgcFlWgbDcfLGswOHYeGrHKzG9z6UYf01d9VFMfZxPM1xZSg== sha1-yAs/qyi/Y3HmhjMl7uZ+YYt35q0="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/chalk/-/chalk-4.1.1.tgz"
-  "version" "4.1.1"
+"chalk@^2.4.1":
+  "integrity" "sha1-zUJUFnelQzPPVBpJEIwUMrRMlCQ="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/chalk/-/chalk-2.4.2.tgz"
+  "version" "2.4.2"
+  dependencies:
+    "ansi-styles" "^3.2.1"
+    "escape-string-regexp" "^1.0.5"
+    "supports-color" "^5.3.0"
+
+"chalk@^2.4.2":
+  "integrity" "sha1-zUJUFnelQzPPVBpJEIwUMrRMlCQ="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/chalk/-/chalk-2.4.2.tgz"
+  "version" "2.4.2"
+  dependencies:
+    "ansi-styles" "^3.2.1"
+    "escape-string-regexp" "^1.0.5"
+    "supports-color" "^5.3.0"
+
+"chalk@^4.0.0", "chalk@^4.1.2":
+  "integrity" "sha1-qsTit3NKdAhnrrFr8CqtVWoeegE="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/chalk/-/chalk-4.1.2.tgz"
+  "version" "4.1.2"
   dependencies:
     "ansi-styles" "^4.1.0"
     "supports-color" "^7.1.0"
@@ -1512,6 +1550,26 @@
   dependencies:
     "delayed-stream" "~1.0.0"
 
+"command-line-args@^5.2.0":
+  "integrity" "sha1-xEwy5DelfXxRFXaWiTxZCenOxC4="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/command-line-args/-/command-line-args-5.2.1.tgz"
+  "version" "5.2.1"
+  dependencies:
+    "array-back" "^3.1.0"
+    "find-replace" "^3.0.0"
+    "lodash.camelcase" "^4.3.0"
+    "typical" "^4.0.0"
+
+"command-line-usage@^6.1.1":
+  "integrity" "sha1-Qo+lrN5qg4d536MORGhvS2dh2Vc="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/command-line-usage/-/command-line-usage-6.1.3.tgz"
+  "version" "6.1.3"
+  dependencies:
+    "array-back" "^4.0.2"
+    "chalk" "^2.4.2"
+    "table-layout" "^1.0.2"
+    "typical" "^5.2.0"
+
 "concat-map@0.0.1":
   "integrity" "sha1-2Klr13/Wjfd5OnMDajug1UBdR3s="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/concat-map/-/concat-map-0.0.1.tgz"
@@ -1549,6 +1607,19 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/convert-source-map/-/convert-source-map-1.1.3.tgz"
   "version" "1.1.3"
 
+"copyfiles@^2.4.1":
+  "integrity" "sha1-0tz/YKqtEBXwnQtm5/Dxxc08XaU="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/copyfiles/-/copyfiles-2.4.1.tgz"
+  "version" "2.4.1"
+  dependencies:
+    "glob" "^7.0.5"
+    "minimatch" "^3.0.3"
+    "mkdirp" "^1.0.4"
+    "noms" "0.0.0"
+    "through2" "^2.0.1"
+    "untildify" "^4.0.0"
+    "yargs" "^16.1.0"
+
 "core-util-is@~1.0.0":
   "integrity" "sha1-pgQtNjTCsn6TKPg3uWX6yDgI24U="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/core-util-is/-/core-util-is-1.0.3.tgz"
@@ -1584,6 +1655,17 @@
     "ripemd160" "^2.0.0"
     "safe-buffer" "^5.0.1"
     "sha.js" "^2.4.8"
+
+"cross-spawn@^6.0.5":
+  "integrity" "sha1-Sl7Hxk364iw6FBJNus3uhG2Ay8Q="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/cross-spawn/-/cross-spawn-6.0.5.tgz"
+  "version" "6.0.5"
+  dependencies:
+    "nice-try" "^1.0.4"
+    "path-key" "^2.0.1"
+    "semver" "^5.5.0"
+    "shebang-command" "^1.2.0"
+    "which" "^1.2.9"
 
 "cross-spawn@^7.0.2", "cross-spawn@^7.0.3":
   "integrity" "sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w== sha1-9zqFudXUHQRVUcF34ogtSshXKKY="
@@ -1627,6 +1709,11 @@
   "version" "2.3.0"
   dependencies:
     "cssom" "~0.3.6"
+
+"current-module-paths@^1.1.0":
+  "integrity" "sha1-XVvyFCgdgK6iZOZC8CjmcgmCOPY="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/current-module-paths/-/current-module-paths-1.1.0.tgz"
+  "version" "1.1.0"
 
 "dash-ast@^1.0.0":
   "integrity" "sha1-EgKbpfsviqbwqGF5WyPBtLbCfTc="
@@ -1698,6 +1785,11 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/dedent/-/dedent-0.7.0.tgz"
   "version" "0.7.0"
 
+"deep-extend@~0.6.0":
+  "integrity" "sha1-xPp8lUBKF6nD6Mp+FTcxK3NjMKw="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/deep-extend/-/deep-extend-0.6.0.tgz"
+  "version" "0.6.0"
+
 "deep-is@^0.1.3", "deep-is@~0.1.3":
   "integrity" "sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/deep-is/-/deep-is-0.1.3.tgz"
@@ -1713,12 +1805,13 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/defer-to-connect/-/defer-to-connect-2.0.1.tgz"
   "version" "2.0.1"
 
-"define-properties@^1.1.3":
-  "integrity" "sha512-3MqfYKj2lLzdMSf8ZIZE/V+Zuy+BgD6f164e8K2w7dgnpKArBDerGYpM46IYYcjnkdPNMjPk9A6VFB8+3SKlXQ== sha1-z4jabL7ib+bbcJT2HYcMvYTO6fE="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/define-properties/-/define-properties-1.1.3.tgz"
-  "version" "1.1.3"
+"define-properties@^1.1.3", "define-properties@^1.1.4":
+  "integrity" "sha1-CxTXvX++svNXLDp+2oDqXVf7BbE="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/define-properties/-/define-properties-1.1.4.tgz"
+  "version" "1.1.4"
   dependencies:
-    "object-keys" "^1.0.12"
+    "has-property-descriptors" "^1.0.0"
+    "object-keys" "^1.1.1"
 
 "defined@^1.0.0":
   "integrity" "sha1-wLnbJ7+v/ZXW9hOZQZuJPfD5Hr8="
@@ -1913,27 +2006,53 @@
   dependencies:
     "is-arrayish" "^0.2.1"
 
-"es-abstract@^1.18.0-next.1", "es-abstract@^1.18.0-next.2", "es-abstract@^1.18.2":
-  "integrity" "sha512-nQIr12dxV7SSxE6r6f1l3DtAeEYdsGpps13dR0TwJg1S8gyp4ZPgy3FZcHBgbiQqnoqSTb+oC+kO4UQ0C/J8vw== sha1-JcTDOAonqiA8RLK2hbupTaMbY+A="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/es-abstract/-/es-abstract-1.18.3.tgz"
-  "version" "1.18.3"
+"es-abstract@^1.18.0-next.1", "es-abstract@^1.18.0-next.2", "es-abstract@^1.18.2", "es-abstract@^1.19.0", "es-abstract@^1.20.4":
+  "integrity" "sha1-5hBaCZlnwIN3gwoMnLWJ1XDdhsY="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/es-abstract/-/es-abstract-1.21.1.tgz"
+  "version" "1.21.1"
   dependencies:
+    "available-typed-arrays" "^1.0.5"
     "call-bind" "^1.0.2"
+    "es-set-tostringtag" "^2.0.1"
     "es-to-primitive" "^1.2.1"
     "function-bind" "^1.1.1"
-    "get-intrinsic" "^1.1.1"
+    "function.prototype.name" "^1.1.5"
+    "get-intrinsic" "^1.1.3"
+    "get-symbol-description" "^1.0.0"
+    "globalthis" "^1.0.3"
+    "gopd" "^1.0.1"
     "has" "^1.0.3"
-    "has-symbols" "^1.0.2"
-    "is-callable" "^1.2.3"
-    "is-negative-zero" "^2.0.1"
-    "is-regex" "^1.1.3"
-    "is-string" "^1.0.6"
-    "object-inspect" "^1.10.3"
+    "has-property-descriptors" "^1.0.0"
+    "has-proto" "^1.0.1"
+    "has-symbols" "^1.0.3"
+    "internal-slot" "^1.0.4"
+    "is-array-buffer" "^3.0.1"
+    "is-callable" "^1.2.7"
+    "is-negative-zero" "^2.0.2"
+    "is-regex" "^1.1.4"
+    "is-shared-array-buffer" "^1.0.2"
+    "is-string" "^1.0.7"
+    "is-typed-array" "^1.1.10"
+    "is-weakref" "^1.0.2"
+    "object-inspect" "^1.12.2"
     "object-keys" "^1.1.1"
-    "object.assign" "^4.1.2"
-    "string.prototype.trimend" "^1.0.4"
-    "string.prototype.trimstart" "^1.0.4"
-    "unbox-primitive" "^1.0.1"
+    "object.assign" "^4.1.4"
+    "regexp.prototype.flags" "^1.4.3"
+    "safe-regex-test" "^1.0.0"
+    "string.prototype.trimend" "^1.0.6"
+    "string.prototype.trimstart" "^1.0.6"
+    "typed-array-length" "^1.0.4"
+    "unbox-primitive" "^1.0.2"
+    "which-typed-array" "^1.1.9"
+
+"es-set-tostringtag@^2.0.1":
+  "integrity" "sha1-M41QL29nQwHXELgMhZLeihXwnNg="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/es-set-tostringtag/-/es-set-tostringtag-2.0.1.tgz"
+  "version" "2.0.1"
+  dependencies:
+    "get-intrinsic" "^1.1.3"
+    "has" "^1.0.3"
+    "has-tostringtag" "^1.0.0"
 
 "es-to-primitive@^1.2.1":
   "integrity" "sha512-QCOllgZJtaUo9miYBcLChTUaHNjJF3PYs1VidD7AwiEj1kYxKeQTctLAezAOH5ZKRH0g2IgPn6KwB4IT8iRpvA== sha1-5VzUyc3BiLzvsDs2bHNjI/xciYo="
@@ -1991,7 +2110,7 @@
   optionalDependencies:
     "source-map" "~0.6.1"
 
-"eslint-config-prettier@^8", "eslint-config-prettier@8.3.0":
+"eslint-config-prettier@8.3.0":
   "integrity" "sha512-BgZuLUSeKzvlL/VUjx/Yb787VQ26RU3gGjA3iiFvdsp/2bMfVIWUVP7tjxtjS0e+HP409cPlPvNkQloz8C91ew== sha1-90cbILb+ipqSVMxoRFQgKIai3Xo="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz"
   "version" "8.3.0"
@@ -2012,7 +2131,7 @@
     "debug" "^3.2.7"
     "pkg-dir" "^2.0.0"
 
-"eslint-plugin-es@^4", "eslint-plugin-es@^4.1.0":
+"eslint-plugin-es@^4.1.0":
   "integrity" "sha512-GILhQTnjYE2WorX5Jyi5i4dz5ALWxBIdQECVQavL6s7cI76IZTDWleTHkxz/QT3kvcs2QlGHvKLYsSlPOlPXnQ== sha1-8IIvDBilNal8PnFOifiFhqdkHsk="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/eslint-plugin-es/-/eslint-plugin-es-4.1.0.tgz"
   "version" "4.1.0"
@@ -2020,7 +2139,7 @@
     "eslint-utils" "^2.0.0"
     "regexpp" "^3.0.0"
 
-"eslint-plugin-filenames@^1", "eslint-plugin-filenames@^1.3.2":
+"eslint-plugin-filenames@^1.3.2":
   "integrity" "sha512-tqxJTiEM5a0JmRCUYQmxw23vtTxrb2+a3Q2mMOPhFxvt7ZQQJmdiuMby9B/vUAuVMghyP7oET+nIf6EO6CBd/w== sha1-cJTwDXrv3WmZ46wZ9yzqBY5ZDPc="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/eslint-plugin-filenames/-/eslint-plugin-filenames-1.3.2.tgz"
   "version" "1.3.2"
@@ -2030,7 +2149,7 @@
     "lodash.snakecase" "4.1.1"
     "lodash.upperfirst" "4.3.1"
 
-"eslint-plugin-import@^2", "eslint-plugin-import@2.24.0":
+"eslint-plugin-import@2.24.0":
   "integrity" "sha512-Kc6xqT9hiYi2cgybOc0I2vC9OgAYga5o/rAFinam/yF/t5uBqxQbauNPMC6fgb640T/89P0gFoO27FOilJ/Cqg== sha1-aX/9Jj4k2l6E4DsoL1+2IlF3cXc="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/eslint-plugin-import/-/eslint-plugin-import-2.24.0.tgz"
   "version" "2.24.0"
@@ -2058,7 +2177,7 @@
   dependencies:
     "@typescript-eslint/experimental-utils" "^4.0.1"
 
-"eslint-plugin-prettier@^3", "eslint-plugin-prettier@3.4.0":
+"eslint-plugin-prettier@3.4.0":
   "integrity" "sha512-UDK6rJT6INSfcOo545jiaOwB701uAIt2/dR7WnFQoGCVl1/EMqdANBmwUaqqQ45aXprsTGzSa39LI1PyuRBxxw== sha1-zbrTvx29Kxd+mCVzf+Y7R2oI8Mc="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/eslint-plugin-prettier/-/eslint-plugin-prettier-3.4.0.tgz"
   "version" "3.4.0"
@@ -2109,7 +2228,7 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/eslint-visitor-keys/-/eslint-visitor-keys-2.1.0.tgz"
   "version" "2.1.0"
 
-"eslint@*", "eslint@^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0", "eslint@^5.0.0 || ^6.0.0 || ^7.0.0", "eslint@^7", "eslint@>=4.19.1", "eslint@>=5", "eslint@>=5.0.0", "eslint@>=7.0.0", "eslint@7.32.0":
+"eslint@*", "eslint@^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0", "eslint@^5.0.0 || ^6.0.0 || ^7.0.0", "eslint@>=4.19.1", "eslint@>=5", "eslint@>=5.0.0", "eslint@>=7.0.0", "eslint@7.32.0":
   "integrity" "sha512-VHZ8gX+EDfz+97jGcgyGCyRia/dPOd6Xh9yPv8Bl1+SoaIwD+a/vlrOmGRUyOYu7MwUhc7CxqeaDZU13S4+EpA== sha1-xtMooUvj+wjI0dIeEsAv23oqgS0="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/eslint/-/eslint-7.32.0.tgz"
   "version" "7.32.0"
@@ -2269,7 +2388,7 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz"
   "version" "3.1.3"
 
-"fast-diff@^1.1.2":
+"fast-diff@^1.1.2", "fast-diff@^1.2.0":
   "integrity" "sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w== sha1-c+4RmC2Gyq95WYKNUZz+kn+sXwM="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/fast-diff/-/fast-diff-1.2.0.tgz"
   "version" "1.2.0"
@@ -2328,12 +2447,27 @@
   dependencies:
     "flat-cache" "^3.0.4"
 
+"file-set@^5.1.2":
+  "integrity" "sha1-RN3mqK5S1pgT7iK+zNfP4ovGVdI="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/file-set/-/file-set-5.1.3.tgz"
+  "version" "5.1.3"
+  dependencies:
+    "array-back" "^6.2.2"
+    "glob" "^7.2.0"
+
 "fill-range@^7.0.1":
   "integrity" "sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ== sha1-GRmmp8df44ssfHflGYU12prN2kA="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/fill-range/-/fill-range-7.0.1.tgz"
   "version" "7.0.1"
   dependencies:
     "to-regex-range" "^5.0.1"
+
+"find-replace@^3.0.0":
+  "integrity" "sha1-Pn4j07BRZ6dvdwyfvVJYsN72jDg="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/find-replace/-/find-replace-3.0.0.tgz"
+  "version" "3.0.0"
+  dependencies:
+    "array-back" "^3.0.1"
 
 "find-up@^2.0.0", "find-up@^2.1.0":
   "integrity" "sha1-RdG35QbHF93UgndaK3eSCjwMV6c="
@@ -2414,10 +2548,25 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/function-bind/-/function-bind-1.1.1.tgz"
   "version" "1.1.1"
 
+"function.prototype.name@^1.1.5":
+  "integrity" "sha1-zOBQX+H/uAUD5vnkbMZORqEqliE="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/function.prototype.name/-/function.prototype.name-1.1.5.tgz"
+  "version" "1.1.5"
+  dependencies:
+    "call-bind" "^1.0.2"
+    "define-properties" "^1.1.3"
+    "es-abstract" "^1.19.0"
+    "functions-have-names" "^1.2.2"
+
 "functional-red-black-tree@^1.0.1":
   "integrity" "sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz"
   "version" "1.0.1"
+
+"functions-have-names@^1.2.2":
+  "integrity" "sha1-BAT+TuK6L2B/Dg7DyAuumUEzuDQ="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/functions-have-names/-/functions-have-names-1.2.3.tgz"
+  "version" "1.2.3"
 
 "gensync@^1.0.0-beta.2":
   "integrity" "sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg== sha1-MqbudsPX9S1GsrGuXZP+qFgKJeA="
@@ -2460,6 +2609,14 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/get-stream/-/get-stream-6.0.1.tgz"
   "version" "6.0.1"
 
+"get-symbol-description@^1.0.0":
+  "integrity" "sha1-f9uByQAQH71WTdXxowr1qtweWNY="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/get-symbol-description/-/get-symbol-description-1.0.0.tgz"
+  "version" "1.0.0"
+  dependencies:
+    "call-bind" "^1.0.2"
+    "get-intrinsic" "^1.1.1"
+
 "glob-parent@^5.1.2":
   "integrity" "sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow== sha1-hpgyxYA0/mikCTwX3BXoNA2EAcQ="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/glob-parent/-/glob-parent-5.1.2.tgz"
@@ -2467,15 +2624,15 @@
   dependencies:
     "is-glob" "^4.0.1"
 
-"glob@^7.1.0", "glob@^7.1.1", "glob@^7.1.2", "glob@^7.1.3", "glob@^7.1.4":
-  "integrity" "sha512-OvD9ENzPLbegENnYP5UUfJIirTg4+XwMWGaQfQTY0JenxNvvIKP3U3/tAQSPIu/lHxXYSZmpXlUHeqAIdKzBLQ== sha1-Oxk+kjPwHULQs/eClLvutBj5SpA="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/glob/-/glob-7.1.7.tgz"
-  "version" "7.1.7"
+"glob@^7.0.5", "glob@^7.1.0", "glob@^7.1.1", "glob@^7.1.2", "glob@^7.1.3", "glob@^7.1.4", "glob@^7.2.0":
+  "integrity" "sha1-uN8PuAK7+o6JvR2Ti04WV47UTys="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/glob/-/glob-7.2.3.tgz"
+  "version" "7.2.3"
   dependencies:
     "fs.realpath" "^1.0.0"
     "inflight" "^1.0.4"
     "inherits" "2"
-    "minimatch" "^3.0.4"
+    "minimatch" "^3.1.1"
     "once" "^1.3.0"
     "path-is-absolute" "^1.0.0"
 
@@ -2491,6 +2648,13 @@
     "semver" "^7.3.2"
     "serialize-error" "^7.0.1"
 
+"global-dirs@^3.0.0":
+  "integrity" "sha1-DEiJcfBmus7aIUR67LGouRHSJIU="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/global-dirs/-/global-dirs-3.0.1.tgz"
+  "version" "3.0.1"
+  dependencies:
+    "ini" "2.0.0"
+
 "globals@^11.1.0":
   "integrity" "sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA== sha1-q4eVM4hooLq9hSV1gBjCp+uVxC4="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/globals/-/globals-11.12.0.tgz"
@@ -2503,7 +2667,7 @@
   dependencies:
     "type-fest" "^0.20.2"
 
-"globalthis@^1.0.1":
+"globalthis@^1.0.1", "globalthis@^1.0.3":
   "integrity" "sha1-WFKIKlK4DcMBsGYCc+HtCC8LbM8="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/globalthis/-/globalthis-1.0.3.tgz"
   "version" "1.0.3"
@@ -2567,10 +2731,10 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/hard-rejection/-/hard-rejection-2.1.0.tgz"
   "version" "2.1.0"
 
-"has-bigints@^1.0.1":
-  "integrity" "sha512-LSBS2LjbNBTf6287JEbEzvJgftkF5qFkmCo9hDRpAzKhUOlJ+hx8dd4USs00SgsUNwc4617J9ki5YtEClM2ffA== sha1-ZP5qywIGc+O3jbA1pa9pqp0HsRM="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/has-bigints/-/has-bigints-1.0.1.tgz"
-  "version" "1.0.1"
+"has-bigints@^1.0.1", "has-bigints@^1.0.2":
+  "integrity" "sha1-CHG9Pj1RYm9soJZmaLo11WAtbqo="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/has-bigints/-/has-bigints-1.0.2.tgz"
+  "version" "1.0.2"
 
 "has-flag@^3.0.0":
   "integrity" "sha1-tdRU3CGZriJWmfNGfloH87lVuv0="
@@ -2582,7 +2746,19 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/has-flag/-/has-flag-4.0.0.tgz"
   "version" "4.0.0"
 
-"has-symbols@^1.0.1", "has-symbols@^1.0.2", "has-symbols@^1.0.3":
+"has-property-descriptors@^1.0.0":
+  "integrity" "sha1-YQcIYAYG02lh7QTBlhk7amB/qGE="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/has-property-descriptors/-/has-property-descriptors-1.0.0.tgz"
+  "version" "1.0.0"
+  dependencies:
+    "get-intrinsic" "^1.1.1"
+
+"has-proto@^1.0.1":
+  "integrity" "sha1-GIXBMFU4lYr/Rp/vN5N8InlUCOA="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/has-proto/-/has-proto-1.0.1.tgz"
+  "version" "1.0.1"
+
+"has-symbols@^1.0.2", "has-symbols@^1.0.3":
   "integrity" "sha1-u3ssQ0klHc6HsSX3vfh0qnyLOfg="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/has-symbols/-/has-symbols-1.0.3.tgz"
   "version" "1.0.3"
@@ -2767,6 +2943,11 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/inherits/-/inherits-2.0.1.tgz"
   "version" "2.0.1"
 
+"ini@2.0.0":
+  "integrity" "sha1-5f1Vbs3VcmvpePoQAYYurLCpS8U="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/ini/-/ini-2.0.0.tgz"
+  "version" "2.0.0"
+
 "inline-source-map@~0.6.0":
   "integrity" "sha1-+Tk0ccGKedFyT4Y/o4tYY3Ct4qU="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/inline-source-map/-/inline-source-map-0.6.2.tgz"
@@ -2790,6 +2971,15 @@
     "undeclared-identifiers" "^1.1.2"
     "xtend" "^4.0.0"
 
+"internal-slot@^1.0.4":
+  "integrity" "sha1-hVHnuvdKemul90nPsWqmByLw1vM="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/internal-slot/-/internal-slot-1.0.4.tgz"
+  "version" "1.0.4"
+  dependencies:
+    "get-intrinsic" "^1.1.3"
+    "has" "^1.0.3"
+    "side-channel" "^1.0.4"
+
 "is-arguments@^1.0.4":
   "integrity" "sha1-FbP4j9oB8ql/7ITKdhpWDxI++ps="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-arguments/-/is-arguments-1.1.1.tgz"
@@ -2798,32 +2988,44 @@
     "call-bind" "^1.0.2"
     "has-tostringtag" "^1.0.0"
 
+"is-array-buffer@^3.0.1":
+  "integrity" "sha1-3rHbT8rkgwjVTvJEJwbAOTmXBSo="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-array-buffer/-/is-array-buffer-3.0.1.tgz"
+  "version" "3.0.1"
+  dependencies:
+    "call-bind" "^1.0.2"
+    "get-intrinsic" "^1.1.3"
+    "is-typed-array" "^1.1.10"
+
 "is-arrayish@^0.2.1":
   "integrity" "sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-arrayish/-/is-arrayish-0.2.1.tgz"
   "version" "0.2.1"
 
 "is-bigint@^1.0.1":
-  "integrity" "sha512-0JV5+SOCQkIdzjBK9buARcV804Ddu7A0Qet6sHi3FimE9ne6m4BGQZfRn+NZiXbBk4F4XmHfDZIipLj9pX8dSA== sha1-/7OBRCUDI1rSReqJ5Fs9v/BA7lo="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-bigint/-/is-bigint-1.0.2.tgz"
-  "version" "1.0.2"
+  "integrity" "sha1-CBR6GHW8KzIAXUHM2Ckd/8ZpHfM="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-bigint/-/is-bigint-1.0.4.tgz"
+  "version" "1.0.4"
+  dependencies:
+    "has-bigints" "^1.0.1"
 
 "is-boolean-object@^1.1.0":
-  "integrity" "sha512-bXdQWkECBUIAcCkeH1unwJLIpZYaa5VvuygSyS/c2lf719mTKZDU5UdDRlpd01UjADgmW8RfqaP+mRaVPdr/Ng== sha1-PAh48DXLghIo01DS4eNnGXFqPeg="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-boolean-object/-/is-boolean-object-1.1.1.tgz"
-  "version" "1.1.1"
+  "integrity" "sha1-XG3CACRt2TIa5LiFoRS7H3X2Nxk="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-boolean-object/-/is-boolean-object-1.1.2.tgz"
+  "version" "1.1.2"
   dependencies:
     "call-bind" "^1.0.2"
+    "has-tostringtag" "^1.0.0"
 
 "is-buffer@^1.1.0":
   "integrity" "sha1-76ouqdqg16suoTqXsritUf776L4="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-buffer/-/is-buffer-1.1.6.tgz"
   "version" "1.1.6"
 
-"is-callable@^1.1.3", "is-callable@^1.1.4", "is-callable@^1.2.3":
-  "integrity" "sha512-J1DcMe8UYTBSrKezuIUTUwjXsho29693unXM2YhJUTR2txK/eG47bvNa/wipPFmZFgr/N6f1GA66dv0mEyTIyQ== sha1-ix4FALc6HXbHBIdjbzaOUZ3o244="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-callable/-/is-callable-1.2.3.tgz"
-  "version" "1.2.3"
+"is-callable@^1.1.3", "is-callable@^1.1.4", "is-callable@^1.2.7":
+  "integrity" "sha1-O8KoXqdC2eNiBdys3XLKH9xRsFU="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-callable/-/is-callable-1.2.7.tgz"
+  "version" "1.2.7"
 
 "is-ci@^3.0.0":
   "integrity" "sha512-kDXyttuLeslKAHYL/K28F2YkM3x5jvFPEw3yXbRptXydjD9rpLEz+C5K5iutY9ZiUu6AP41JdvRQwF4Iqs4ZCQ== sha1-x+e+PJ2O730PoUQ5C9HkuI3EyZQ="
@@ -2873,15 +3075,17 @@
   dependencies:
     "is-extglob" "^2.1.1"
 
-"is-negative-zero@^2.0.1":
-  "integrity" "sha512-2z6JzQvZRa9A2Y7xC6dQQm4FSTSTNWjKIYYTt4246eMTJmIo0Q+ZyOsU66X8lxK1AbB92dFeglPLrhwpeRKO6w== sha1-PedGwY3aIxkkGlNnWQjY92bxHCQ="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-negative-zero/-/is-negative-zero-2.0.1.tgz"
-  "version" "2.0.1"
+"is-negative-zero@^2.0.2":
+  "integrity" "sha1-e/bwOigAO4s5Zd46wm9mTXZfMVA="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-negative-zero/-/is-negative-zero-2.0.2.tgz"
+  "version" "2.0.2"
 
 "is-number-object@^1.0.4":
-  "integrity" "sha512-RU0lI/n95pMoUKu9v1BZP5MBcZuNSVJkMkAG2dJqC4z2GlkGUNeH68SuHuBKBD/XFe+LHZ+f9BKkLET60Niedw== sha1-bt+u7XlQz/Ga/tzp+/yp7m3Sies="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-number-object/-/is-number-object-1.0.5.tgz"
-  "version" "1.0.5"
+  "integrity" "sha1-WdUK2kxFJReE6ZBPUkbHQvB6Qvw="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-number-object/-/is-number-object-1.0.7.tgz"
+  "version" "1.0.7"
+  dependencies:
+    "has-tostringtag" "^1.0.0"
 
 "is-number@^7.0.0":
   "integrity" "sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng== sha1-dTU0W4lnNNX4DE0GxQlVUnoU8Ss="
@@ -2908,23 +3112,32 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-potential-custom-element-name/-/is-potential-custom-element-name-1.0.1.tgz"
   "version" "1.0.1"
 
-"is-regex@^1.1.3":
-  "integrity" "sha512-qSVXFz28HM7y+IWX6vLCsexdlvzT1PJNFSBuaQLQ5o0IEw8UDYW6/2+eCMVyIsbM8CNLX2a/QWmSpyxYEHY7CQ== sha1-0Cn5r/ZEi5Prvj8z2scVEf3L758="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-regex/-/is-regex-1.1.3.tgz"
-  "version" "1.1.3"
+"is-regex@^1.1.4":
+  "integrity" "sha1-7vVmPNWfpMCuM5UFMj32hUuxWVg="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-regex/-/is-regex-1.1.4.tgz"
+  "version" "1.1.4"
   dependencies:
     "call-bind" "^1.0.2"
-    "has-symbols" "^1.0.2"
+    "has-tostringtag" "^1.0.0"
+
+"is-shared-array-buffer@^1.0.2":
+  "integrity" "sha1-jyWcVztgtqMtQFihoHQwwKc0THk="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-shared-array-buffer/-/is-shared-array-buffer-1.0.2.tgz"
+  "version" "1.0.2"
+  dependencies:
+    "call-bind" "^1.0.2"
 
 "is-stream@^2.0.0":
   "integrity" "sha512-XCoy+WlUr7d1+Z8GgSuXmpuUFC9fOhRXglJMx+dwLKTkL44Cjd4W1Z5P+BQZpr+cR93aGP4S/s7Ftw6Nd/kiEw== sha1-venDJoDW+uBBKdasnZIc54FfeOM="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-stream/-/is-stream-2.0.0.tgz"
   "version" "2.0.0"
 
-"is-string@^1.0.5", "is-string@^1.0.6":
-  "integrity" "sha512-2gdzbKUuqtQ3lYNrUTQYoClPhm7oQu4UdpSZMp1/DGgkHBT8E2Z1l0yMdb6D4zNAxwDiMv8MdulKROJGNl0Q0w== sha1-P+XVmS+w2TQE8yWE1LAXmnG1Sl8="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-string/-/is-string-1.0.6.tgz"
-  "version" "1.0.6"
+"is-string@^1.0.5", "is-string@^1.0.7":
+  "integrity" "sha1-DdEr8gBvJVu1j2lREO/3SR7rwP0="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-string/-/is-string-1.0.7.tgz"
+  "version" "1.0.7"
+  dependencies:
+    "has-tostringtag" "^1.0.0"
 
 "is-symbol@^1.0.2", "is-symbol@^1.0.3":
   "integrity" "sha512-C/CPBqKWnvdcxqIARxyOh4v1UUEOCHpgDa0WYgpKDFMszcrPcffg5uhwSgPCLD2WWxmq6isisz87tzT01tuGhg== sha1-ptrJO2NbBjymhyI23oiRClevE5w="
@@ -2933,7 +3146,7 @@
   dependencies:
     "has-symbols" "^1.0.2"
 
-"is-typed-array@^1.1.10", "is-typed-array@^1.1.3":
+"is-typed-array@^1.1.10", "is-typed-array@^1.1.3", "is-typed-array@^1.1.9":
   "integrity" "sha1-NqW1y0GJtXXRo+SwhTa/tIWAHj8="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-typed-array/-/is-typed-array-1.1.10.tgz"
   "version" "1.1.10"
@@ -2949,10 +3162,22 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-typedarray/-/is-typedarray-1.0.0.tgz"
   "version" "1.0.0"
 
+"is-weakref@^1.0.2":
+  "integrity" "sha1-lSnzg6kzggXol2XgOS78LxAPBvI="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/is-weakref/-/is-weakref-1.0.2.tgz"
+  "version" "1.0.2"
+  dependencies:
+    "call-bind" "^1.0.2"
+
 "isarray@~1.0.0":
   "integrity" "sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/isarray/-/isarray-1.0.0.tgz"
   "version" "1.0.0"
+
+"isarray@0.0.1":
+  "integrity" "sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/isarray/-/isarray-0.0.1.tgz"
+  "version" "0.0.1"
 
 "isexe@^2.0.0":
   "integrity" "sha1-6PvzdNxVb/iUehDcsFctYz8s+hA="
@@ -3583,6 +3808,13 @@
     "pify" "^3.0.0"
     "strip-bom" "^3.0.0"
 
+"load-module@^4.2.1":
+  "integrity" "sha1-O1lqTd7lLFkQbTgWCqYxoN7WiGc="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/load-module/-/load-module-4.2.1.tgz"
+  "version" "4.2.1"
+  dependencies:
+    "array-back" "^6.2.0"
+
 "locate-path@^2.0.0":
   "integrity" "sha1-K1aLJl7slExtnA3pw9u7ygNUzY4="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/locate-path/-/locate-path-2.0.0.tgz"
@@ -3605,7 +3837,7 @@
   dependencies:
     "p-locate" "^5.0.0"
 
-"lodash.camelcase@4.3.0":
+"lodash.camelcase@^4.3.0", "lodash.camelcase@4.3.0":
   "integrity" "sha1-soqmKIorn8ZRA1x3EfZathkDMaY="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz"
   "version" "4.3.0"
@@ -3707,6 +3939,11 @@
     "inherits" "^2.0.1"
     "safe-buffer" "^5.1.2"
 
+"memorystream@^0.3.1":
+  "integrity" "sha1-htcJCzDORV1j+64S3aUaR93K+bI="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/memorystream/-/memorystream-0.3.1.tgz"
+  "version" "0.3.1"
+
 "meow@^10.1.3":
   "integrity" "sha1-vlKh2HtfVphgKw8yh17llAkEqn8="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/meow/-/meow-10.1.5.tgz"
@@ -3793,10 +4030,10 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz"
   "version" "1.0.1"
 
-"minimatch@^3.0.4":
-  "integrity" "sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA== sha1-UWbihkV/AzBgZL5Ul+jbsMPTIIM="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/minimatch/-/minimatch-3.0.4.tgz"
-  "version" "3.0.4"
+"minimatch@^3.0.3", "minimatch@^3.0.4", "minimatch@^3.1.1":
+  "integrity" "sha1-Gc0ZS/0+Qo8EmnCBfAONiatL41s="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/minimatch/-/minimatch-3.1.2.tgz"
+  "version" "3.1.2"
   dependencies:
     "brace-expansion" "^1.1.7"
 
@@ -3818,6 +4055,11 @@
   "integrity" "sha1-+hDJEVzG2IZb4iG6R+6b7XhgERM="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz"
   "version" "0.5.3"
+
+"mkdirp@^1.0.4":
+  "integrity" "sha1-PrXtYmInVteaXw4qIh3+utdcL34="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/mkdirp/-/mkdirp-1.0.4.tgz"
+  "version" "1.0.4"
 
 "module-deps@^6.2.3":
   "integrity" "sha1-FUkLwCr0tWz2IpnHwXy6Mtcalu4="
@@ -3855,6 +4097,11 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
 
+"nice-try@^1.0.4":
+  "integrity" "sha1-ozeKdpbOfSI+iPybdkvX7xCJ42Y="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/nice-try/-/nice-try-1.0.5.tgz"
+  "version" "1.0.5"
+
 "node-int64@^0.4.0":
   "integrity" "sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/node-int64/-/node-int64-0.4.0.tgz"
@@ -3869,6 +4116,14 @@
   "integrity" "sha512-uW7fodD6pyW2FZNZnp/Z3hvWKeEW1Y8R1+1CnErE8cXFXzl5blBOoVB41CvMer6P6Q0S5FXDwcHgFd1Wj0U9zg== sha1-3U6B3dUnf/hGuAtSu0DEnt96eyA="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/node-releases/-/node-releases-1.1.73.tgz"
   "version" "1.1.73"
+
+"noms@0.0.0":
+  "integrity" "sha1-2o69nzr51nYJGbJ9nNyAkqczKFk="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/noms/-/noms-0.0.0.tgz"
+  "version" "0.0.0"
+  dependencies:
+    "inherits" "^2.0.1"
+    "readable-stream" "~1.0.31"
 
 "normalize-package-data@^2.3.2":
   "integrity" "sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA== sha1-5m2xg4sgDB38IzIl0SyzZSDiNKg="
@@ -3900,6 +4155,21 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/normalize-url/-/normalize-url-6.1.0.tgz"
   "version" "6.1.0"
 
+"npm-run-all@^4.1.5":
+  "integrity" "sha1-BEdiAqFe4OLiFAgIYb/xKlHZj7o="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/npm-run-all/-/npm-run-all-4.1.5.tgz"
+  "version" "4.1.5"
+  dependencies:
+    "ansi-styles" "^3.2.1"
+    "chalk" "^2.4.1"
+    "cross-spawn" "^6.0.5"
+    "memorystream" "^0.3.1"
+    "minimatch" "^3.0.4"
+    "pidtree" "^0.3.0"
+    "read-pkg" "^3.0.0"
+    "shell-quote" "^1.6.1"
+    "string.prototype.padend" "^3.0.0"
+
 "npm-run-path@^4.0.1":
   "integrity" "sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw== sha1-t+zR5e1T2o43pV4cImnguX7XSOo="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/npm-run-path/-/npm-run-path-4.0.1.tgz"
@@ -3917,24 +4187,24 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/object-assign/-/object-assign-4.1.1.tgz"
   "version" "4.1.1"
 
-"object-inspect@^1.10.3":
-  "integrity" "sha512-jp7ikS6Sd3GxQfZJPyH3cjcbJF6GZPClgdV+EFygjFLQ5FmW/dRUnTd9PQ9k0JhoNDabWFbpF1yCdSWCC6gexg== sha1-nc6xRs7dQUig2eUauI00z1CZIrE="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/object-inspect/-/object-inspect-1.11.0.tgz"
-  "version" "1.11.0"
+"object-inspect@^1.12.2", "object-inspect@^1.9.0":
+  "integrity" "sha1-umLf/WfuJWyMCG365p4BbNHxmLk="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/object-inspect/-/object-inspect-1.12.3.tgz"
+  "version" "1.12.3"
 
-"object-keys@^1.0.12", "object-keys@^1.1.1":
+"object-keys@^1.1.1":
   "integrity" "sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA== sha1-HEfyct8nfzsdrwYWd9nILiMixg4="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/object-keys/-/object-keys-1.1.1.tgz"
   "version" "1.1.1"
 
-"object.assign@^4.1.2":
-  "integrity" "sha512-ixT2L5THXsApyiUPYKmW+2EHpXXe5Ii3M+f4e+aJFAHao5amFRW6J0OO6c/LU8Be47utCx2GL89hxGB6XSmKuQ== sha1-DtVKNC7Os3s4/3brgxoOeIy2OUA="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/object.assign/-/object.assign-4.1.2.tgz"
-  "version" "4.1.2"
+"object.assign@^4.1.4":
+  "integrity" "sha1-lnPHx8NRq4xNC1FvQ0Pr9N+3eZ8="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/object.assign/-/object.assign-4.1.4.tgz"
+  "version" "4.1.4"
   dependencies:
-    "call-bind" "^1.0.0"
-    "define-properties" "^1.1.3"
-    "has-symbols" "^1.0.1"
+    "call-bind" "^1.0.2"
+    "define-properties" "^1.1.4"
+    "has-symbols" "^1.0.3"
     "object-keys" "^1.1.1"
 
 "object.values@^1.1.3":
@@ -4131,6 +4401,11 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/path-is-absolute/-/path-is-absolute-1.0.1.tgz"
   "version" "1.0.1"
 
+"path-key@^2.0.1":
+  "integrity" "sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/path-key/-/path-key-2.0.1.tgz"
+  "version" "2.0.1"
+
 "path-key@^3.0.0", "path-key@^3.1.0":
   "integrity" "sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q== sha1-WB9q3mWMu6ZaDTOA3ndTKVBU83U="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/path-key/-/path-key-3.1.1.tgz"
@@ -4178,6 +4453,11 @@
   "integrity" "sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw== sha1-8fBh3o9qS/AiiS4tEoI0+5gwKXI="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/picomatch/-/picomatch-2.3.0.tgz"
   "version" "2.3.0"
+
+"pidtree@^0.3.0":
+  "integrity" "sha1-7wmsLMBTPfHzJQzPLE02aw0SEUo="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/pidtree/-/pidtree-0.3.1.tgz"
+  "version" "0.3.1"
 
 "pify@^3.0.0":
   "integrity" "sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY="
@@ -4229,7 +4509,7 @@
   dependencies:
     "fast-diff" "^1.1.2"
 
-"prettier@^2", "prettier@>=1.13.0", "prettier@2.3.2":
+"prettier@>=1.13.0", "prettier@2.3.2":
   "integrity" "sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ== sha1-7ygKBewlNxLkhiM9tcbyNEHnNC0="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/prettier/-/prettier-2.3.2.tgz"
   "version" "2.3.2"
@@ -4243,6 +4523,11 @@
     "ansi-regex" "^5.0.0"
     "ansi-styles" "^5.0.0"
     "react-is" "^17.0.1"
+
+"printj@^1.3.0":
+  "integrity" "sha1-mvax1VZHoVh6xE9MFlSkuVuOEss="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/printj/-/printj-1.3.1.tgz"
+  "version" "1.3.1"
 
 "process-nextick-args@~2.0.0":
   "integrity" "sha1-eCDZsWEgzFXKmud5JoCufbptf+I="
@@ -4421,6 +4706,16 @@
     "string_decoder" "^1.1.1"
     "util-deprecate" "^1.0.1"
 
+"readable-stream@~1.0.31":
+  "integrity" "sha1-Elgg40vIQtLyqq+v5MKRbuMsFXw="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/readable-stream/-/readable-stream-1.0.34.tgz"
+  "version" "1.0.34"
+  dependencies:
+    "core-util-is" "~1.0.0"
+    "inherits" "~2.0.1"
+    "isarray" "0.0.1"
+    "string_decoder" "~0.10.x"
+
 "redent@^4.0.0":
   "integrity" "sha1-DAunyquyQlerO7ek/ZXdHVxWgfk="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/redent/-/redent-4.0.0.tgz"
@@ -4429,10 +4724,42 @@
     "indent-string" "^5.0.0"
     "strip-indent" "^4.0.0"
 
+"reduce-flatten@^2.0.0":
+  "integrity" "sha1-c0/YTmXzddfKRGXGl5jCXJ0Qric="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/reduce-flatten/-/reduce-flatten-2.0.0.tgz"
+  "version" "2.0.0"
+
+"regexp.prototype.flags@^1.4.3":
+  "integrity" "sha1-h8qzD4D2ZmAYGju3v1mBqHKzZ6w="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/regexp.prototype.flags/-/regexp.prototype.flags-1.4.3.tgz"
+  "version" "1.4.3"
+  dependencies:
+    "call-bind" "^1.0.2"
+    "define-properties" "^1.1.3"
+    "functions-have-names" "^1.2.2"
+
 "regexpp@^3.0.0", "regexpp@^3.1.0":
   "integrity" "sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg== sha1-BCWido2PI7rXDKS5BGH6LxIT4bI="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/regexpp/-/regexpp-3.2.0.tgz"
   "version" "3.2.0"
+
+"renamer@^4.0.0":
+  "integrity" "sha1-EulpefL+wPDOMfocY4TWaLyA9kg="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/renamer/-/renamer-4.0.0.tgz"
+  "version" "4.0.0"
+  dependencies:
+    "array-back" "^6.2.0"
+    "chalk" "^4.1.2"
+    "command-line-args" "^5.2.0"
+    "command-line-usage" "^6.1.1"
+    "current-module-paths" "^1.1.0"
+    "fast-diff" "^1.2.0"
+    "file-set" "^5.1.2"
+    "global-dirs" "^3.0.0"
+    "load-module" "^4.2.1"
+    "printj" "^1.3.0"
+    "stream-read-all" "^3.0.1"
+    "typical" "^7.1.1"
 
 "require-directory@^2.1.1":
   "integrity" "sha1-jGStX9MNqxyXbiNE/+f3kqam30I="
@@ -4535,6 +4862,15 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/safe-buffer/-/safe-buffer-5.2.1.tgz"
   "version" "5.2.1"
 
+"safe-regex-test@^1.0.0":
+  "integrity" "sha1-eTuHTVJOs2QNGHOq0DWW2y1PIpU="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/safe-regex-test/-/safe-regex-test-1.0.0.tgz"
+  "version" "1.0.0"
+  dependencies:
+    "call-bind" "^1.0.2"
+    "get-intrinsic" "^1.1.3"
+    "is-regex" "^1.1.4"
+
 "safer-buffer@^2.1.0", "safer-buffer@>= 2.1.2 < 3":
   "integrity" "sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg== sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/safer-buffer/-/safer-buffer-2.1.2.tgz"
@@ -4551,6 +4887,11 @@
   "integrity" "sha1-De4hahyUGrN+nvsXiPavxf9VN/w="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/semver-compare/-/semver-compare-1.0.0.tgz"
   "version" "1.0.0"
+
+"semver@^5.5.0":
+  "integrity" "sha1-qVT5Ma66UI0we78Gnv8MAclhFvc="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/semver/-/semver-5.7.1.tgz"
+  "version" "5.7.1"
 
 "semver@^6.0.0":
   "integrity" "sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw== sha1-7gpkyK9ejO6mdoexM3YeG+y9HT0="
@@ -4601,12 +4942,24 @@
   dependencies:
     "fast-safe-stringify" "^2.0.7"
 
+"shebang-command@^1.2.0":
+  "integrity" "sha1-RKrGW2lbAzmJaMOfNj/uXer98eo="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/shebang-command/-/shebang-command-1.2.0.tgz"
+  "version" "1.2.0"
+  dependencies:
+    "shebang-regex" "^1.0.0"
+
 "shebang-command@^2.0.0":
   "integrity" "sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA== sha1-zNCvT4g1+9wmW4JGGq8MNmY/NOo="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/shebang-command/-/shebang-command-2.0.0.tgz"
   "version" "2.0.0"
   dependencies:
     "shebang-regex" "^3.0.0"
+
+"shebang-regex@^1.0.0":
+  "integrity" "sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/shebang-regex/-/shebang-regex-1.0.0.tgz"
+  "version" "1.0.0"
 
 "shebang-regex@^3.0.0":
   "integrity" "sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A== sha1-rhbxZE2HPsrYQ7AwexQzYtTEIXI="
@@ -4617,6 +4970,15 @@
   "integrity" "sha1-M/4V3ucasqgfy9OlIQbFz7n7ddg="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/shell-quote/-/shell-quote-1.7.4.tgz"
   "version" "1.7.4"
+
+"side-channel@^1.0.4":
+  "integrity" "sha1-785cj9wQTudRslxY1CkAEfpeos8="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/side-channel/-/side-channel-1.0.4.tgz"
+  "version" "1.0.4"
+  dependencies:
+    "call-bind" "^1.0.0"
+    "get-intrinsic" "^1.0.2"
+    "object-inspect" "^1.9.0"
 
 "signal-exit@^3.0.2", "signal-exit@^3.0.3":
   "integrity" "sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA== sha1-oUEMLt2PB3sItOJTyOrPyvBXRhw="
@@ -4749,6 +5111,11 @@
     "readable-stream" "^3.6.0"
     "xtend" "^4.0.2"
 
+"stream-read-all@^3.0.1":
+  "integrity" "sha1-YHYq5F5h2Tugl4zafzkTeQBSrZY="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/stream-read-all/-/stream-read-all-3.0.1.tgz"
+  "version" "3.0.1"
+
 "stream-splicer@^2.0.0":
   "integrity" "sha1-CxO37itax+BgmnRj2DiZWJo2P80="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/stream-splicer/-/stream-splicer-2.0.1.tgz"
@@ -4763,6 +5130,11 @@
   "version" "1.3.0"
   dependencies:
     "safe-buffer" "~5.2.0"
+
+"string_decoder@~0.10.x":
+  "integrity" "sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/string_decoder/-/string_decoder-0.10.31.tgz"
+  "version" "0.10.31"
 
 "string_decoder@~1.1.1":
   "integrity" "sha1-nPFhG6YmhdcDCunkujQUnDrwP8g="
@@ -4788,21 +5160,32 @@
     "is-fullwidth-code-point" "^3.0.0"
     "strip-ansi" "^6.0.0"
 
-"string.prototype.trimend@^1.0.4":
-  "integrity" "sha512-y9xCjw1P23Awk8EvTpcyL2NIr1j7wJ39f+k6lvRnSMz+mz9CGz9NYPelDk42kOz6+ql8xjfK8oYzy3jAP5QU5A== sha1-51rpDClCxjUEaGwYsoe0oLGkX4A="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/string.prototype.trimend/-/string.prototype.trimend-1.0.4.tgz"
-  "version" "1.0.4"
+"string.prototype.padend@^3.0.0":
+  "integrity" "sha1-LEO7OonrVLZ1DeWULBI9bJjdZbY="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/string.prototype.padend/-/string.prototype.padend-3.1.4.tgz"
+  "version" "3.1.4"
   dependencies:
     "call-bind" "^1.0.2"
-    "define-properties" "^1.1.3"
+    "define-properties" "^1.1.4"
+    "es-abstract" "^1.20.4"
 
-"string.prototype.trimstart@^1.0.4":
-  "integrity" "sha512-jh6e984OBfvxS50tdY2nRZnoC5/mLFKOREQfw8t5yytkoUsJRNxvI/E39qu1sD0OtWI3OC0XgKSmcWwziwYuZw== sha1-s2OZr0qymZtMnGSL16P7K7Jv7u0="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/string.prototype.trimstart/-/string.prototype.trimstart-1.0.4.tgz"
-  "version" "1.0.4"
+"string.prototype.trimend@^1.0.6":
+  "integrity" "sha1-xKJ/oCbZedecBPFzl/JQpGKURTM="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/string.prototype.trimend/-/string.prototype.trimend-1.0.6.tgz"
+  "version" "1.0.6"
   dependencies:
     "call-bind" "^1.0.2"
-    "define-properties" "^1.1.3"
+    "define-properties" "^1.1.4"
+    "es-abstract" "^1.20.4"
+
+"string.prototype.trimstart@^1.0.6":
+  "integrity" "sha1-6Qq2aqjkAH2S71kbvzzUIsVr3PQ="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/string.prototype.trimstart/-/string.prototype.trimstart-1.0.6.tgz"
+  "version" "1.0.6"
+  dependencies:
+    "call-bind" "^1.0.2"
+    "define-properties" "^1.1.4"
+    "es-abstract" "^1.20.4"
 
 "strip-ansi@^6.0.0":
   "integrity" "sha512-AuvKTrTfQNYNIctbR1K/YGTR1756GycPsg7b9bdV9Duqur4gv6aKqHXah67Z8ImS7WEz5QVcOtlfW2rZEugt6w== sha1-CxVx3XZpzNTz4G4U7x7tJiJa5TI="
@@ -4893,6 +5276,16 @@
   dependencies:
     "acorn-node" "^1.2.0"
 
+"table-layout@^1.0.2":
+  "integrity" "sha1-xAOKGFOwE21jNlpzS2kxz0+tSgQ="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/table-layout/-/table-layout-1.0.2.tgz"
+  "version" "1.0.2"
+  dependencies:
+    "array-back" "^4.0.1"
+    "deep-extend" "~0.6.0"
+    "typical" "^5.2.0"
+    "wordwrapjs" "^4.0.0"
+
 "table@^6.0.9":
   "integrity" "sha512-ZGum47Yi6KOOFDE8m223td53ath2enHcYLgOCjGr5ngu8bdIARQk6mN/wRMv4yMRcHnCSnHbCEha4sobQx5yWg== sha1-7gVZK3FDgxqMlPPO5qrkwczvM+I="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/table/-/table-6.7.1.tgz"
@@ -4937,7 +5330,7 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/through/-/through-2.3.8.tgz"
   "version" "2.3.8"
 
-"through2@^2.0.0":
+"through2@^2.0.0", "through2@^2.0.1":
   "integrity" "sha1-AcHjnrMdB8t9A6lqcIIyYLIxMs0="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/through2/-/through2-2.0.5.tgz"
   "version" "2.0.5"
@@ -5074,6 +5467,15 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/type-fest/-/type-fest-1.4.0.tgz"
   "version" "1.4.0"
 
+"typed-array-length@^1.0.4":
+  "integrity" "sha1-idg3heXECYvscuCLMZZR8OrJwbs="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/typed-array-length/-/typed-array-length-1.0.4.tgz"
+  "version" "1.0.4"
+  dependencies:
+    "call-bind" "^1.0.2"
+    "for-each" "^0.3.3"
+    "is-typed-array" "^1.1.9"
+
 "typedarray-to-buffer@^3.1.5":
   "integrity" "sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q== sha1-qX7nqf9CaRufeD/xvFES/j/KkIA="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/typedarray-to-buffer/-/typedarray-to-buffer-3.1.5.tgz"
@@ -5091,19 +5493,34 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/typescript/-/typescript-4.3.5.tgz"
   "version" "4.3.5"
 
+"typical@^4.0.0":
+  "integrity" "sha1-y+r/O5164eK7+vWk5vEezP3pT8Q="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/typical/-/typical-4.0.0.tgz"
+  "version" "4.0.0"
+
+"typical@^5.2.0":
+  "integrity" "sha1-TaqsTytTFUYIBPCs9stpxSu5MGY="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/typical/-/typical-5.2.0.tgz"
+  "version" "5.2.0"
+
+"typical@^7.1.1":
+  "integrity" "sha1-uhd6t6sQO3hTRGP/pMDJdUUjrB8="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/typical/-/typical-7.1.1.tgz"
+  "version" "7.1.1"
+
 "umd@^3.0.0":
   "integrity" "sha1-qp/mU8QrkJdnhInAEACstp8LJs8="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/umd/-/umd-3.0.3.tgz"
   "version" "3.0.3"
 
-"unbox-primitive@^1.0.1":
-  "integrity" "sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw== sha1-CF4hViXsMWJXTciFmr7nilmxRHE="
-  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/unbox-primitive/-/unbox-primitive-1.0.1.tgz"
-  "version" "1.0.1"
+"unbox-primitive@^1.0.2":
+  "integrity" "sha1-KQMgIQV9Xmzb0IxRKcIm3/jtb54="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/unbox-primitive/-/unbox-primitive-1.0.2.tgz"
+  "version" "1.0.2"
   dependencies:
-    "function-bind" "^1.1.1"
-    "has-bigints" "^1.0.1"
-    "has-symbols" "^1.0.2"
+    "call-bind" "^1.0.2"
+    "has-bigints" "^1.0.2"
+    "has-symbols" "^1.0.3"
     "which-boxed-primitive" "^1.0.2"
 
 "undeclared-identifiers@^1.1.2":
@@ -5121,6 +5538,11 @@
   "integrity" "sha1-tkb2m+OULavOzJ1mOcgNwQXvqmY="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/universalify/-/universalify-0.1.2.tgz"
   "version" "0.1.2"
+
+"untildify@^4.0.0":
+  "integrity" "sha1-K8lHuVNlJIfkYAlJ+wkeOujNkZs="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/untildify/-/untildify-4.0.0.tgz"
+  "version" "4.0.0"
 
 "uri-js@^4.2.2":
   "integrity" "sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg== sha1-mxpSWVIlhZ5V9mnZKPiMbFfyp34="
@@ -5240,7 +5662,7 @@
     "webidl-conversions" "^6.1.0"
 
 "which-boxed-primitive@^1.0.2":
-  "integrity" "sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg== sha1-E3V7yJsgmwSf5dhkMOIc9AqJqOY="
+  "integrity" "sha1-E3V7yJsgmwSf5dhkMOIc9AqJqOY="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/which-boxed-primitive/-/which-boxed-primitive-1.0.2.tgz"
   "version" "1.0.2"
   dependencies:
@@ -5250,7 +5672,7 @@
     "is-string" "^1.0.5"
     "is-symbol" "^1.0.3"
 
-"which-typed-array@^1.1.2":
+"which-typed-array@^1.1.2", "which-typed-array@^1.1.9":
   "integrity" "sha1-MHz4mAJYSM+ZXnlehCPH8zfvveY="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/which-typed-array/-/which-typed-array-1.1.9.tgz"
   "version" "1.1.9"
@@ -5261,6 +5683,13 @@
     "gopd" "^1.0.1"
     "has-tostringtag" "^1.0.0"
     "is-typed-array" "^1.1.10"
+
+"which@^1.2.9":
+  "integrity" "sha1-pFBD1U9YBTFtqNYvn1CRjT2nCwo="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/which/-/which-1.3.1.tgz"
+  "version" "1.3.1"
+  dependencies:
+    "isexe" "^2.0.0"
 
 "which@^2.0.1":
   "integrity" "sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA== sha1-fGqN0KY2oDJ+ELWckobu6T8/UbE="
@@ -5273,6 +5702,14 @@
   "integrity" "sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ== sha1-YQY29rH3A4kb00dxzLF/uTtHB5w="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/word-wrap/-/word-wrap-1.2.3.tgz"
   "version" "1.2.3"
+
+"wordwrapjs@^4.0.0":
+  "integrity" "sha1-2XkLzPsRCg/Hg2tevOCTezeouY8="
+  "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/wordwrapjs/-/wordwrapjs-4.0.1.tgz"
+  "version" "4.0.1"
+  dependencies:
+    "reduce-flatten" "^2.0.0"
+    "typical" "^5.2.0"
 
 "wrap-ansi@^7.0.0":
   "integrity" "sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q== sha1-Z+FFz/UQpqaYS98RUpEdadLrnkM="
@@ -5333,7 +5770,7 @@
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/yargs-parser/-/yargs-parser-20.2.9.tgz"
   "version" "20.2.9"
 
-"yargs@^16.0.3":
+"yargs@^16.0.3", "yargs@^16.1.0":
   "integrity" "sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw== sha1-HIK/D2tqZur85+8w43b0mhJHf2Y="
   "resolved" "https://bams-aws.refinitiv.com/artifactory/api/npm/default.npm.global/yargs/-/yargs-16.2.0.tgz"
   "version" "16.2.0"

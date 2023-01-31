@@ -13,8 +13,6 @@ type MaybeHasFd = {
 
 export class TcpSocketElectron {
   readonly id: number;
-  host: string;
-  port: number;
   private _socket: net.Socket;
   private _messagePort: MessagePortLike;
   private _api = new Map<string, RpcHandler>([
@@ -71,14 +69,10 @@ export class TcpSocketElectron {
   constructor(messageChannelFactory: MessageChannelFactory,
     id: number,
     messagePort: MessagePortLike,
-    host: string,
-    port: number,
     socket: net.Socket,
   ) {
     messageChannelFactory;
     this.id = id;
-    this.host = host;
-    this.port = port;
     this._socket = socket;
     this._messagePort = messagePort;
 
@@ -89,8 +83,7 @@ export class TcpSocketElectron {
     this._socket.on("error", (err) => this._emit("error", String(err.stack ?? err)));
 
     messagePort.addEventListener('message', (ev: MessageEvent<RpcCall>) => {
-      const [methodName, callId] = ev.data;
-      const args = ev.data.slice(2);
+      const [methodName, callId, ...args] = ev.data;
       const handler = this._api.get(methodName);
       handler?.(callId, args);
     });

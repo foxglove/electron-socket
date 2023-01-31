@@ -13,26 +13,29 @@
     "email": "contact@emmkimme.dev"
   },
   "homepage": "https://github.com/emmkimme/electron-socket",
-  "type": "commonjs",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.js",
+  "browser": "./dist/cjs/index-browser.js",
   "exports": {
     "./main": {
-      "import": "./dist/esm/main/index.js",
+      "import": "./dist/mjs/main/index.js",
       "require": "./dist/cjs/main/index.js"
     },
     "./mainPreloader": {
-      "import": "./dist/esm/preloader/PreloaderSocketsMain.js",
+      "import": "./dist/mjs/preloader/PreloaderSocketsMain.js",
       "require": "./dist/cjs/preloader/PreloaderSocketsMain.js"
     },
-    "./mainRenderer": {
-      "import": "./dist/esm/renderer/SocketsMain.js",
-      "require": "./dist/cjs/renderer/SocketsMain.js"
-    },
     "./preloader": {
-      "import": "./dist/esm/preloader/index.js",
+      "import": "./dist/mjs/preloader/index.js",
       "require": "./dist/cjs/preloader/index.js"
     },
+    "./mainRenderer": {
+      "import": "./dist/mjs/renderer/SocketsMain.js",
+      "require": "./dist/cjs/renderer/SocketsMain.js"
+    },
     "./renderer": {
-      "import": "./dist/esm/renderer/index.js",
+      "import": "./dist/mjs/renderer/index.js",
       "require": "./dist/cjs/renderer/index.js"
     }
   },
@@ -44,7 +47,13 @@
   ],
   "scripts": {
     "clean": "del-cli -f dist",
-    "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json",
+    "build": "run-p build:cjs build:mjs",
+    "build:cjs": "run-s ts:cjs copy:cjs",
+    "ts:cjs": "tsc -p tsconfig.cjs.json",
+    "copy:cjs": "copyfiles package.cjs.json ./dist/cjs && renamer ./dist/cjs/package.cjs.json --replace package.json",
+    "build:mjs": "run-s ts:mjs copy:mjs",
+    "ts:mjs": "tsc -p tsconfig.mjs.json",
+    "copy:mjs": "copyfiles package.mjs.json ./dist/mjs && renamer ./dist/mjs/package.mjs.json --replace package.json",
     "build:app": "npm run install:app & npm run browserify:app",
     "install:app": "cd ./test/electron-app && npm install",
     "browserify:app": "npm run browserify:app:preload && npm run browserify:app:js && npm run browserify:app:isolated-js",
@@ -61,17 +70,19 @@
   "dependencies": {
     "browserify": "^17.0.0",
     "dns-packet": "^5.2.4",
-    "eventemitter3": "^4.0.7"
+    "eventemitter3": "^4.0.7",
+    "npm-run-all": "^4.1.5",
+    "renamer": "^4.0.0"
   },
   "peerDependencies": {
     "electron": "^22.1.0"
   },
   "devDependencies": {
-    "@emmkimme/eslint-plugin": "0.14.0",
     "@types/dns-packet": "5.2.2",
     "@types/jest": "^27.0.1",
     "@typescript-eslint/eslint-plugin": "4.29.2",
     "@typescript-eslint/parser": "4.29.2",
+    "copyfiles": "^2.4.1",
     "del-cli": "^5.0.0",
     "esbuild": "0.12.20",
     "eslint": "7.32.0",
@@ -92,3 +103,5 @@
     "usePackageVersion": true
   }
 }
+
+

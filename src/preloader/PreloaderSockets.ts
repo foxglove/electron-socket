@@ -23,12 +23,10 @@ export class PreloaderSockets {
     ],
     [
       "createSocket",
-      (callId, args) => {
-        const host = args[0] as string;
-        const port = args[1] as number;
-        const msgPort = createSocket(messageChannelFactory, host, port);
+      (callId) => {
+        const msgPort = createSocket(messageChannelFactory);
         if (msgPort == undefined) {
-          this._messagePort.postMessage([callId, `createSocket(${host}, ${port}) failed`]);
+          this._messagePort.postMessage([callId, `createSocket() failed`]);
         } else {
           this._messagePort.postMessage([callId], [msgPort]);
         }

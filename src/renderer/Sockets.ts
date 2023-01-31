@@ -53,7 +53,7 @@ export class Sockets {
     });
   }
 
-  async createSocket(host: string, port: number): Promise<TcpSocketRenderer> {
+  async createSocket(): Promise<TcpSocketRenderer> {
     return await new Promise((resolve, reject) => {
       const callId = this._nextCallId++;
       this._callbacks.set(callId, (args, ports) => {
@@ -66,7 +66,7 @@ export class Sockets {
         resolve(new TcpSocketRenderer(msgPort));
       });
 
-      const msg: RpcCall = ["createSocket", callId, host, port];
+      const msg: RpcCall = ["createSocket", callId];
       this._messagePort.postMessage(msg);
     });
   }

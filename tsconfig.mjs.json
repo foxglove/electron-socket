@@ -2,6 +2,6 @@
   "extends": "./tsconfig.common.json",
   "compilerOptions": {
     "module": "es2020",
-    "outDir": "./dist/esm"
+    "outDir": "./dist/mjs"
   }
 }

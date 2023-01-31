@@ -17,10 +17,10 @@ export function createHttpServer(messageChannelFactory: MessageChannelFactory): 
   return channel.port1;
 }
 
-export function createSocket(messageChannelFactory: MessageChannelFactory, host: string, port: number): MessagePortLike | undefined {
+export function createSocket(messageChannelFactory: MessageChannelFactory): MessagePortLike | undefined {
   const channel = messageChannelFactory();
   const id = nextId();
-  const socket = new TcpSocketElectron(messageChannelFactory, id, ConvertToMessagePort(channel.port2), host, port, new Socket());
+  const socket = new TcpSocketElectron(messageChannelFactory, id, ConvertToMessagePort(channel.port2), new Socket());
   registerEntity(id, socket);
   return channel.port1;
 }

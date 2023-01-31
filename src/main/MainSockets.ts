@@ -24,12 +24,10 @@ export class MainSockets {
     ],
     [
       "createSocket",
-      (callId, args) => {
-        const host = args[0] as string;
-        const port = args[1] as number;
-        const msgPort = createSocket(messageChannelFactoryMain, host, port);
+      (callId) => {
+        const msgPort = createSocket(messageChannelFactoryMain);
         if (msgPort == undefined) {
-          this._messagePort.postMessage([callId, `createSocket(${host}, ${port}) failed`]);
+          this._messagePort.postMessage([callId, `createSocket() failed`]);
         } else {
           this._messagePort.postMessage([callId], [msgPort]);
         }
@@ -66,15 +64,12 @@ export class MainSockets {
     this._messagePort = messagePort;
 
     messagePort.addEventListener('message', (ev: MessageEvent<RpcCall>) => {
-      const methodName = ev.data[0];
-      const callId = ev.data[1];
+      const [methodName, callId, ...args] = ev.data;
       const handler = this._functionHandlers.get(methodName);
       if (handler == undefined) {
         this._messagePort.postMessage([callId, `unhandled method "${methodName}"`]);
         return;
       }
-
-      const args = ev.data.slice(2);
       handler(callId, args);
     });
     messagePort.start();

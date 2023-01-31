@@ -54,8 +54,7 @@ export class HttpServerElectron {
     this._server.on("error", (err) => this._emit("error", String(err.stack ?? err)));
 
     messagePort.addEventListener('message', (ev: MessageEvent<RpcCall>) => {
-      const [methodName, callId] = ev.data;
-      const args = ev.data.slice(2);
+      const [methodName, callId, ...args] = ev.data;
       const handler = this._api.get(methodName);
       handler?.(callId, args);
     });
