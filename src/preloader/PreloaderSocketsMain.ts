@@ -1,9 +1,8 @@
-import { ipcRenderer } from "electron";
-
 export class PreloaderSocketsMain {
 
   static async Create(channel = "__electron_socket"): Promise<MessagePort> {
     return new Promise<MessagePort>((resolve, reject) => {
+      const { ipcRenderer } = require("electron");
       ipcRenderer.send('__electron_socket_main', channel);
       ipcRenderer.once(channel, (ev) => {
         const messagePort = ev.ports[0];
