@@ -44,11 +44,11 @@ function createWindow(page, title, webPreferences) {
 
 
 function createWindows() {
-        createWindow('page.html', 'preload nodeIntegration: false', 
-            { sandbox: false, nodeIntegration: false, contextIsolation: false, preload: path.join(__dirname, 'page-preload.bundle.js') })
+        createWindow('page-main.html', 'Main', 
+            { sandbox: false, nodeIntegration: false, contextIsolation: false, preload: path.join(__dirname, 'page-main-preload.bundle.js') })
 
-            createWindow('page-isolated.html', 'preload nodeIntegration: false', 
-            { sandbox: false, nodeIntegration: true, contextIsolation: true, preload: path.join(__dirname, 'page-isolated-preload.js') })
+            createWindow('page-renderer.html', 'Renderer', 
+            { sandbox: false, nodeIntegration: true, contextIsolation: true, preload: path.join(__dirname, 'page-renderer-preload.js') })
 }
 
 // This method will be called when Electron has finished
