@@ -38,7 +38,7 @@
     "browserify:app:preload": "browserify -o ./test/electron-app/page-main-preload.bundle.js -x electron ./test/electron-app/page-main-preload.js",
     "browserify:app:js": "browserify -o ./test/electron-app/page-main.bundle.js -x electron ./test/electron-app/page-main.js",
     "browserify:app:renderer-js": "browserify -o ./test/electron-app/page-renderer.bundle.js -x electron ./test/electron-app/page-renderer.js",
-    "run:app": "electron --disable-sandbox ./test/electron-app/app.js",
+    "test:app": "electron --disable-sandbox ./test/electron-app/app.js",
     "lint:ci": "eslint --report-unused-disable-directives .",
     "lint": "eslint --report-unused-disable-directives --fix .",
     "#prepack": "yarn build",

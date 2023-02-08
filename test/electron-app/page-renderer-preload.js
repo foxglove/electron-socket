@@ -1,5 +1,5 @@
 
-const electronSocket = require('electron-socket/preloader');
+const electronSocket = require('electron-socket/dist/cjs/preloader');
 
 electronSocket.PreloaderSockets.Create();
 
