@@ -1,7 +1,7 @@
 {
   "name": "@devolutionary/electron-socket",
   "private": false,
-  "version": "3.0.0-beta.2",
+  "version": "3.0.0-beta.3",
   "description": "Networking sockets for Electron apps",
   "license": "MIT",
   "repository": {
@@ -17,28 +17,6 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/mjs/index.js",
   "browser": "./dist/cjs/index-browser.js",
-  "exports": {
-    "./main": {
-      "import": "./dist/mjs/main/index.js",
-      "require": "./dist/cjs/main/index.js"
-    },
-    "./mainPreloader": {
-      "import": "./dist/mjs/preloader/PreloaderSocketsMain.js",
-      "require": "./dist/cjs/preloader/PreloaderSocketsMain.js"
-    },
-    "./preloader": {
-      "import": "./dist/mjs/preloader/index.js",
-      "require": "./dist/cjs/preloader/index.js"
-    },
-    "./mainRenderer": {
-      "import": "./dist/mjs/renderer/SocketsMain.js",
-      "require": "./dist/cjs/renderer/SocketsMain.js"
-    },
-    "./renderer": {
-      "import": "./dist/mjs/renderer/index.js",
-      "require": "./dist/cjs/renderer/index.js"
-    }
-  },
   "files": [
     "dist",
     "src",
