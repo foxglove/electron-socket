@@ -43,7 +43,8 @@
     "lint": "eslint --report-unused-disable-directives --fix .",
     "#prepack": "yarn build",
     "#prepublishOnly": "yarn lint:ci && yarn test",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "node ..\\..\\workspace-desktop\\dev\\tools\\df-publish.js ."
   },
   "dependencies": {
     "browserify": "^17.0.0",
