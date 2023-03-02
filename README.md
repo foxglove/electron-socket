@@ -40,7 +40,7 @@ main();
 
 ## License
 
-@foxglove/electron-socket is licensed under [MIT License](https://opensource.org/licenses/MIT).
+@foxglove/electron-socket is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Releasing
 
