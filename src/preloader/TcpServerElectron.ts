@@ -1,4 +1,4 @@
-import net from "net";
+import * as net from "net";
 
 import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc.js";
 import { TcpAddress } from "../shared/TcpTypes.js";

@@ -1,4 +1,4 @@
-import http from "http";
+import * as http from "http";
 
 import { HttpRequest, HttpResponse } from "../shared/HttpTypes.js";
 import { MessageChannelFactory, MessagePortLike } from "../shared/MessagePort.js";

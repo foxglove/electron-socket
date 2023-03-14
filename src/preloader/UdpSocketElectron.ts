@@ -1,4 +1,4 @@
-import dgram from "dgram";
+import * as dgram from "dgram";
 import { MessageChannelFactory, MessagePortLike } from "../shared/MessagePort.js";
 
 import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc.js";

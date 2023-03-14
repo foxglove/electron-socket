@@ -1,4 +1,4 @@
-import dns from "dns";
+import * as dns from "dns";
 
 import { mdns4Request } from "./mdns.js";
 

@@ -1,6 +1,6 @@
-import dgram from "dgram";
+import * as dgram from "dgram";
 import * as packet from "dns-packet";
-import os from "os";
+import * as os from "os";
 
 const BROADCAST_IP = "224.0.0.251";
 const PORT = 5353;

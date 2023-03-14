@@ -6,7 +6,7 @@
     "rootDir": "./src",
 
     "moduleResolution": "node",
-    "esModuleInterop": true,
+    "esModuleInterop": false,
     "isolatedModules": true,
     "allowJs": false,
     "newLine": "lf",

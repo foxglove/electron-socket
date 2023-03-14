@@ -1,4 +1,4 @@
-import dns from "dns";
+import * as dns from "dns";
 
 import { MDnsResolver } from "./MDnsResolver.js";
 

@@ -1,4 +1,4 @@
-import EventEmitter from "eventemitter3";
+import * as EventEmitter from "eventemitter3";
 
 import { HttpHandler, HttpRequest, HttpResponse } from "../shared/HttpTypes.js";
 import { Cloneable, RpcCall, RpcEvent, RpcResponse } from "../shared/Rpc.js";

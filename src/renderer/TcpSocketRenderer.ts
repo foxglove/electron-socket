@@ -1,4 +1,4 @@
-import EventEmitter from "eventemitter3";
+import * as EventEmitter from "eventemitter3";
 
 import { Cloneable, RpcCall, RpcEvent, RpcResponse } from "../shared/Rpc.js";
 import { TcpAddress, TcpSocketConnectOptions } from "../shared/TcpTypes.js";

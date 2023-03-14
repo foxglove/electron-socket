@@ -1,4 +1,4 @@
-import net from "net";
+import * as net from "net";
 import { MessageChannelFactory, MessagePortLike } from "../shared/MessagePort.js";
 
 import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc.js";
