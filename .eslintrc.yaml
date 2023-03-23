@@ -14,3 +14,6 @@ overrides:
       - plugin:@foxglove/typescript
     parserOptions:
       project: [./tsconfig.json, ./tsconfig.dts.json]
+  - files: ["example/**"]
+    parserOptions:
+      project: ./example/tsconfig.json
