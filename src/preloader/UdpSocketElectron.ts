@@ -284,6 +284,7 @@ export class UdpSocketElectron {
     });
   }
 
+  // eslint-disable-next-line @foxglove/no-boolean-parameters
   setBroadcast(flag: boolean): void {
     this._socket.setBroadcast(flag);
   }
@@ -292,6 +293,7 @@ export class UdpSocketElectron {
     this._socket.setMulticastInterface(multicastInterface);
   }
 
+  // eslint-disable-next-line @foxglove/no-boolean-parameters
   setMulticastLoopback(flag: boolean): void {
     this._socket.setMulticastLoopback(flag);
   }

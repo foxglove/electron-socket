@@ -64,6 +64,7 @@ export class TcpSocketRenderer extends EventEmitter<TcpSocketRendererEvents> {
     return res[0] as number | undefined;
   }
 
+  // eslint-disable-next-line @foxglove/no-boolean-parameters
   async setKeepAlive(enable?: boolean, initialDelay?: number): Promise<void> {
     await this._apiCall("setKeepAlive", enable, initialDelay);
   }
@@ -72,6 +73,7 @@ export class TcpSocketRenderer extends EventEmitter<TcpSocketRendererEvents> {
     await this._apiCall("setTimeout", timeout);
   }
 
+  // eslint-disable-next-line @foxglove/no-boolean-parameters
   async setNoDelay(noDelay?: boolean): Promise<void> {
     await this._apiCall("setNoDelay", noDelay);
   }
@@ -99,6 +101,7 @@ export class TcpSocketRenderer extends EventEmitter<TcpSocketRendererEvents> {
     this._callbacks.clear();
   }
 
+  // eslint-disable-next-line @foxglove/no-boolean-parameters
   async write(data: Uint8Array, transfer = false): Promise<void> {
     return await new Promise((resolve) => {
       const callId = this._nextCallId++;

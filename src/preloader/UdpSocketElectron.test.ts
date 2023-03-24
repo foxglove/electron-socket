@@ -2,9 +2,9 @@
 
 import { createSocket, SocketOptions } from "dgram";
 
+import { UdpSocketElectron } from "./UdpSocketElectron";
 import { RpcCall } from "../shared/Rpc";
 import { UdpRemoteInfo } from "../shared/UdpTypes";
-import { UdpSocketElectron } from "./UdpSocketElectron";
 
 class MessagePort {
   onmessage = (_ev: MessageEvent<RpcCall>) => {};

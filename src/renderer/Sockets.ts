@@ -1,9 +1,10 @@
-import { HttpHandler } from "../shared/HttpTypes.js";
-import { Cloneable, RpcCall, RpcResponse } from "../shared/Rpc.js";
 import { HttpServerRenderer } from "./HttpServerRenderer.js";
 import { TcpServerRenderer } from "./TcpServerRenderer.js";
 import { TcpSocketRenderer } from "./TcpSocketRenderer.js";
 import { UdpSocketRenderer } from "./UdpSocketRenderer.js";
+import { HttpHandler } from "../shared/HttpTypes.js";
+import { Message } from "../shared/Message.js";
+import { Cloneable, RpcCall, RpcResponse } from "../shared/Rpc.js";
 
 export class Sockets {
   // The renderer ("main world") side of the original message channel connecting
@@ -20,6 +21,7 @@ export class Sockets {
   private _nextCallId = 0;
 
   // A map of created `Sockets` instances, or a promise if creation is in progress
+  /** @deprecated Use `Create()` rather than accessing `registeredSockets` directly */
   static registeredSockets = new Map<string, Sockets | Promise<Sockets>>();
 
   constructor(messagePort: MessagePort) {
@@ -107,36 +109,48 @@ export class Sockets {
     });
   }
 
-  // Initialize electron-socket on the renderer side. This method should be called
-  // before the window is loaded
+  // Initialize electron-socket on the renderer side. This method will not resolve until the
+  // preloader side has also been initialized.
   static async Create(channel = "__electron_socket"): Promise<Sockets> {
     const entry = Sockets.registeredSockets.get(channel);
     if (entry != undefined) {
-      const promise = entry as Promise<Sockets>;
-      if (typeof promise.then === "function") {
-        return await promise;
-      }
       return await entry;
     }
 
-    const promise = new Promise<Sockets>((resolve) => {
-      const messageListener = (windowEv: MessageEvent<string>) => {
-        if (windowEv.target !== window || windowEv.data !== channel) {
+    const promise = new Promise<Sockets>((resolve, reject) => {
+      const messageListener = (event: MessageEvent<Message>) => {
+        if (event.target !== window || event.data.channel !== channel) {
           return;
         }
 
-        const messagePort = windowEv.ports[0];
-        if (messagePort == undefined) {
+        if (event.data.type === "preloaderReady") {
+          // The renderer was initialized before the preloader. Inform the preloader (again) that
+          // the renderer is ready.
+          window.postMessage({ channel, type: "rendererReady" } satisfies Message, "*");
           return;
         }
-        const sockets = new Sockets(messagePort);
-        Sockets.registeredSockets.set(channel, sockets);
 
-        window.removeEventListener("message", messageListener);
-        resolve(sockets);
+        if (event.data.type === "preloaderInitialized") {
+          const messagePort = event.ports[0];
+          if (!messagePort) {
+            reject(new Error("Received preloaderInitialized message with no port"));
+            return;
+          }
+          const sockets = new Sockets(messagePort);
+          Sockets.registeredSockets.set(channel, sockets);
+
+          window.removeEventListener("message", messageListener);
+          resolve(sockets);
+        }
       };
       window.addEventListener("message", messageListener);
     });
+
+    // Notify the preloader that we are ready to initialize.
+    // - If it has not yet invoked Create(), it will send a preloaderReady message when it does.
+    //   Then we will send a rendererReady message.
+    // - If the preloader has already invoked Create(), it will send a preloaderInitialized message.
+    window.postMessage({ channel, type: "rendererReady" } satisfies Message, "*");
 
     Sockets.registeredSockets.set(channel, promise);
     return await promise;

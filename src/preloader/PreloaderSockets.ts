@@ -1,5 +1,6 @@
-import { Cloneable, RpcCall } from "../shared/Rpc.js";
 import { createHttpServer, createServer, createSocket, createUdpSocket } from "./api.js";
+import { Message } from "../shared/Message.js";
+import { Cloneable, RpcCall } from "../shared/Rpc.js";
 
 export class PreloaderSockets {
   // The preloader ("isolated world") side of the original message channel
@@ -54,7 +55,9 @@ export class PreloaderSockets {
   ]);
 
   // A map of created `PreloaderSockets` instances
+  /** @deprecated Use `Create()` rather than accessing `registeredSockets` directly */
   static registeredSockets = new Map<string, PreloaderSockets>();
+  static #registeredSocketPromises = new Map<string, Promise<PreloaderSockets>>();
 
   constructor(messagePort: MessagePort) {
     this._messagePort = messagePort;
@@ -74,30 +77,47 @@ export class PreloaderSockets {
     messagePort.start();
   }
 
+  // Initialize electron-socket on the preloader side. This method will not resolve until the
+  // renderer side has also been initialized.
   static async Create(channel = "__electron_socket"): Promise<PreloaderSockets> {
-    const windowLoaded = new Promise<void>((resolve) => {
-      if (document.readyState === "complete") {
-        resolve();
-        return;
-      }
-      const loaded = () => {
-        window.removeEventListener("load", loaded);
-        resolve();
-      };
-      window.addEventListener("load", loaded);
-    });
-
-    await windowLoaded;
-
-    const entry = PreloaderSockets.registeredSockets.get(channel);
-    if (entry != undefined) {
-      return entry;
+    const entry = PreloaderSockets.#registeredSocketPromises.get(channel);
+    if (entry) {
+      return await entry;
     }
 
-    const messageChannel = new MessageChannel();
-    const sockets = new PreloaderSockets(messageChannel.port2);
-    PreloaderSockets.registeredSockets.set(channel, sockets);
-    window.postMessage(channel, "*", [messageChannel.port1]);
-    return sockets;
+    const promise = new Promise<PreloaderSockets>((resolve) => {
+      const initializeSockets = () => {
+        const messageChannel = new MessageChannel();
+        const sockets = new PreloaderSockets(messageChannel.port2);
+        PreloaderSockets.registeredSockets.set(channel, sockets);
+        window.postMessage(
+          {
+            channel,
+            type: "preloaderInitialized",
+          } satisfies Message,
+          "*",
+          [messageChannel.port1],
+        );
+        resolve(sockets);
+      };
+
+      const messageListener = (event: MessageEvent<Message>) => {
+        if (event.target !== window || event.data.channel !== channel) {
+          return;
+        }
+        if (event.data.type === "rendererReady") {
+          initializeSockets();
+          window.removeEventListener("message", messageListener);
+        }
+      };
+      window.addEventListener("message", messageListener);
+
+      // Notify the renderer that we are ready to initialize.
+      // - If it has not yet invoked Create(), it will send a rendererReady message when it does.
+      // - If the renderer has already invoked Create(), it will re-send its rendererReady message.
+      window.postMessage({ channel, type: "preloaderReady" } satisfies Message, "*");
+    });
+    PreloaderSockets.#registeredSocketPromises.set(channel, promise);
+    return await promise;
   }
 }

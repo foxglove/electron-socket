@@ -131,7 +131,7 @@ export class UdpSocketRenderer extends EventEmitter<UdpSocketRendererEvents> {
     length?: number,
     port?: number,
     address?: string,
-    transfer = false,
+    transfer = false, // eslint-disable-line @foxglove/no-boolean-parameters
   ): Promise<void> {
     return await new Promise((resolve) => {
       const callId = this._nextCallId++;
@@ -148,6 +148,7 @@ export class UdpSocketRenderer extends EventEmitter<UdpSocketRendererEvents> {
     });
   }
 
+  // eslint-disable-next-line @foxglove/no-boolean-parameters
   async setBroadcast(flag: boolean): Promise<void> {
     await this._apiCall("setBroadcast", flag);
   }
@@ -156,6 +157,7 @@ export class UdpSocketRenderer extends EventEmitter<UdpSocketRendererEvents> {
     await this._apiCall("setMulticastInterface", multicastInterface);
   }
 
+  // eslint-disable-next-line @foxglove/no-boolean-parameters
   async setMulticastLoopback(flag: boolean): Promise<void> {
     await this._apiCall("setMulticastLoopback", flag);
   }

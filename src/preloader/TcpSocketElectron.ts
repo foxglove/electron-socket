@@ -1,8 +1,8 @@
 import net from "net";
 
+import { dnsLookup } from "./dns.js";
 import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc.js";
 import { TcpAddress } from "../shared/TcpTypes.js";
-import { dnsLookup } from "./dns.js";
 
 type MaybeHasFd = {
   _handle?: {
@@ -118,6 +118,7 @@ export class TcpSocketElectron {
     return (this._socket as unknown as MaybeHasFd)._handle?.fd;
   }
 
+  // eslint-disable-next-line @foxglove/no-boolean-parameters
   setKeepAlive(enable?: boolean, initialDelay?: number): this {
     this._socket.setKeepAlive(enable, initialDelay);
     return this;
@@ -128,6 +129,7 @@ export class TcpSocketElectron {
     return this;
   }
 
+  // eslint-disable-next-line @foxglove/no-boolean-parameters
   setNoDelay(noDelay?: boolean): this {
     this._socket.setNoDelay(noDelay);
     return this;

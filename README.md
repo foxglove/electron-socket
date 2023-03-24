@@ -42,7 +42,13 @@ main();
 
 @foxglove/electron-socket is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
-## Releasing
+## Development
+
+### Testing
+
+A small example Electron app is provided in the [example](example) directory, which can be used for manual testing. Run it using `yarn example`.
+
+### Releasing
 
 1. Run `yarn version --[major|minor|patch]` to bump version
 2. Run `git push && git push --tags` to push new tag
