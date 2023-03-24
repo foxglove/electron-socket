@@ -21,6 +21,7 @@ export class Sockets {
   private _nextCallId = 0;
 
   // A map of created `Sockets` instances, or a promise if creation is in progress
+  /** @deprecated Use `Create()` rather than accessing `registeredSockets` directly */
   static registeredSockets = new Map<string, Sockets | Promise<Sockets>>();
 
   constructor(messagePort: MessagePort) {
