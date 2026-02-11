@@ -4,23 +4,21 @@ import { MDnsResolver } from "./MDnsResolver.js";
 
 const mdnsResolver = new MDnsResolver();
 
-const getaddrinfo = dns.lookup.bind(dns);
-
 export function dnsLookup(
   hostname: string,
-  options: dns.LookupOneOptions,
+  options: dns.LookupOptions,
   callback: (err: NodeJS.ErrnoException | null, address: string, family: number) => void,
 ): void {
   if (!/\.local$/.test(hostname)) {
-    getaddrinfo(hostname, options, callback);
+    dns.lookup(hostname, { ...options, all: false }, callback);
   } else {
     void mdnsLookup(hostname, options, callback);
   }
 }
 
-export async function mdnsLookup(
+async function mdnsLookup(
   hostname: string,
-  options: dns.LookupOneOptions,
+  options: dns.LookupOptions,
   callback: (err: NodeJS.ErrnoException | null, address: string, family: number) => void,
 ): Promise<void> {
   const response = await mdnsResolver.mdnsLookup(hostname, options);

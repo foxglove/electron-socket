@@ -1,4 +1,4 @@
-import net, { LookupFunction } from "net";
+import net from "net";
 
 import { dnsLookup } from "./dns.js";
 import { Cloneable, RpcCall, RpcHandler, RpcResponse } from "../shared/Rpc.js";
@@ -142,7 +142,7 @@ export class TcpSocketElectron {
   async connect(): Promise<void> {
     return await new Promise((resolve, reject) => {
       this._socket
-        .connect({ host: this.host, port: this.port, lookup: dnsLookup as LookupFunction }, () => {
+        .connect({ host: this.host, port: this.port, lookup: dnsLookup }, () => {
           this._socket.removeListener("error", reject);
           resolve();
           this._emit("connect");
