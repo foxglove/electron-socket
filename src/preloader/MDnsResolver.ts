@@ -16,7 +16,7 @@ export class MDnsResolver {
 
   async mdnsLookup(
     hostname: string,
-    options: dns.LookupOneOptions,
+    options: dns.LookupOptions,
   ): Promise<DnsCacheEntry | undefined> {
     // Cache check
     let entry = this._getEntry(hostname);
@@ -41,7 +41,7 @@ export class MDnsResolver {
 
   private async _doMdnsLookup(
     hostname: string,
-    _options: dns.LookupOneOptions,
+    _options: dns.LookupOptions,
   ): Promise<DnsCacheEntry | undefined> {
     const DEFAULT_TTL_SEC = 120;
 
